@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="Economy:jar">
-    <output-path>$PROJECT_DIR$/lib/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../Minecraft/lib/plugins/plugins</output-path>
     <root id="archive" name="Economy.jar">
       <element id="module-output" name="Economy" />
       <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
