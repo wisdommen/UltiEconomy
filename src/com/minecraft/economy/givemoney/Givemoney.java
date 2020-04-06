@@ -17,9 +17,8 @@ public class Givemoney implements CommandExecutor {
         if (!(commandSender instanceof Player)) {
             if (command.getName().equalsIgnoreCase("givemoney") && strings.length == 2) {
                 Integer amount = Integer.parseInt(strings[1]);
-                File player = new File(Economy.getInstance().getDataFolder() + "/playerData", strings[0] + ".yml");
 
-                if (addMoney.addTo(player.getName(), amount)) {
+                if (addMoney.addTo(strings[0], amount)) {
                     commandSender.sendMessage(ChatColor.GOLD + "你已转账" + amount + "枚金币给" + strings[0] + "！");
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         if (strings[0].equals(players.getName())) {

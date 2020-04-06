@@ -7,6 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="craftbukkit-latest" level="project" />
+    <orderEntry type="library" name="Bukkit-1.15.2" level="project" />
   </component>
 </module>
