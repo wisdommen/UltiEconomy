@@ -24,9 +24,9 @@ public class addMoney {
                 return false;
             }
         } catch (AssertionError e) {
-            System.out.println("数额异常:"+e);
-        }catch (IOException e){
-            System.out.println("保存数据异常："+e);
+            System.out.println("数额异常:" + e);
+        } catch (IOException e) {
+            System.out.println("保存数据异常：" + e);
         }
         return false;
     }

@@ -78,7 +78,7 @@ public class Pay implements CommandExecutor {
                     }
 
                 }
-            }else {
+            } else {
                 commandsender.sendMessage(ChatColor.RED + "[警告]请输入正确的指令！");
                 commandsender.sendMessage(ChatColor.RED + "用法：/pay 玩家名 数字");
                 return true;

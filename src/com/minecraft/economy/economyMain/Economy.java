@@ -7,6 +7,7 @@ import com.minecraft.economy.givemoney.Givemoney;
 import com.minecraft.economy.givemoney.Pay;
 import com.minecraft.economy.interest.Interest;
 import com.minecraft.economy.money.Money;
+import com.minecraft.economy.money.onJoin;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -33,6 +34,7 @@ public class Economy extends JavaPlugin {
         }
         int time = getConfig().getInt("interestTime");
         BukkitTask t1 = new Interest().runTaskTimer(this, 0, time * 20L);
+        getServer().getPluginManager().registerEvents(new onJoin(), this);
         Objects.requireNonNull(this.getCommand("qk")).setExecutor(new qk());
         Objects.requireNonNull(this.getCommand("ck")).setExecutor(new ck());
         Objects.requireNonNull(this.getCommand("Givemoney")).setExecutor(new Givemoney());
@@ -41,7 +43,7 @@ public class Economy extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("pay")).setExecutor(new Pay());
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已加载！");
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "作者wisdomme");
-        getServer().getConsoleSender().sendMessage(ChatColor.GOLD+"已开启利息！");
+        getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "已开启利息！");
     }
 
     public static Economy getInstance() {
