@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import static com.minecraft.economy.apis.addMoney.addTo;
 import static com.minecraft.economy.apis.addMoney.addToBank;
@@ -59,7 +60,10 @@ public class Interest extends BukkitRunnable {
                 }
             }
         } else {
-            for (String player_name : dataBase.getAllKey()) {
+            dataBase.connect();
+            List<String> keys = dataBase.getAllKey();
+            for (String player_name : keys) {
+                dataBase.connect();
                 if (dataBase.isExist(player_name)) {
                     int bank = checkMoney.checkbank(player_name);
                     double interests = bank * (interest_rate / 10000);
@@ -74,7 +78,9 @@ public class Interest extends BukkitRunnable {
                         }
                     }
                 }
+                dataBase.close();
             }
+            dataBase.close();
         }
     }
 }

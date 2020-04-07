@@ -17,14 +17,12 @@ public class takeMoney {
             DataBase dataBase = Economy.dataBase;
             assert amount >= 0;
             if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
-                if (checkMoney.player_file_exists(player_name)) {
                     if (checkMoney.checkmoney(player_name) >= amount) {
                         YamlConfiguration config = checkMoney.load_config(checkMoney.get_player_file(player_name));
                         config.set("money", checkMoney.checkmoney(player_name) - amount);
                         config.save(checkMoney.get_player_file(player_name));
                         return true;
                     }
-                }
             }else {
                 dataBase.connect();
                 if (dataBase.isExist(player_name)){
