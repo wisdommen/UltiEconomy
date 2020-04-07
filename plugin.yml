@@ -1,6 +1,6 @@
 name: Economy
 main: com.minecraft.economy.economyMain.Economy
-version: 1.5
+version: 1.6.1
 commands:
   money:
     description: 金币余额
