@@ -167,6 +167,13 @@ public class LinkedDataBase implements DataBase {
                         this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
                         this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
                     }
+                }else if (datatype.equals("double")){
+                    double data = Double.parseDouble(temp.toString());
+                    double valueupdated = ((double)valuedata)+data;
+                    if (!this.res.next()) {
+                        this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
+                        this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -182,6 +189,13 @@ public class LinkedDataBase implements DataBase {
                 if (datatype.equals("int")){
                     int data = Integer.parseInt(temp.toString());
                     int valueupdated = data-((int)valuedata);
+                    if (!this.res.next()) {
+                        this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
+                        this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
+                    }
+                }else if (datatype.equals("double")){
+                    double data = Double.parseDouble(temp.toString());
+                    double valueupdated = data-((double)valuedata);
                     if (!this.res.next()) {
                         this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
                         this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
