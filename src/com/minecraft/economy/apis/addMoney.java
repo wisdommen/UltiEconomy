@@ -1,6 +1,8 @@
 package com.minecraft.economy.apis;
 
 
+import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.database.DataBase;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.IOException;
@@ -13,16 +15,53 @@ public class addMoney {
     public static boolean addTo(String player_name, Integer amount) {
         try {
             assert amount >= 0;
-            if (checkMoney.player_file_exists(player_name)) {
-                if (checkMoney.check(player_name) >= 0) {
+            DataBase dataBase = Economy.dataBase;
+
+            if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
+                if (checkMoney.player_file_exists(player_name)) {
                     YamlConfiguration config = checkMoney.load_config(checkMoney.get_player_file(player_name));
-                    config.set("money", checkMoney.check(player_name) + amount);
+                    config.set("money", checkMoney.checkmoney(player_name) + amount);
                     config.save(checkMoney.get_player_file(player_name));
-                    return true;
                 }
-            } else {
-                return false;
+                return true;
+            }else {
+                dataBase.connect();
+                if (dataBase.isExist(player_name)) {
+                    dataBase.increaseData(player_name, "Money", amount, "int");
+                }
+                dataBase.close();
+                return true;
             }
+
+        } catch (AssertionError e) {
+            System.out.println("数额异常:" + e);
+        } catch (IOException e) {
+            System.out.println("保存数据异常：" + e);
+        }
+        return false;
+    }
+
+    public static boolean addToBank(String player_name, Integer amount) {
+        try {
+            assert amount >= 0;
+            DataBase dataBase = Economy.dataBase;
+
+            if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
+                if (checkMoney.player_file_exists(player_name)) {
+                    YamlConfiguration config = checkMoney.load_config(checkMoney.get_player_file(player_name));
+                    config.set("bank", checkMoney.checkmoney(player_name) + amount);
+                    config.save(checkMoney.get_player_file(player_name));
+                }
+                return true;
+            }else {
+                dataBase.connect();
+                if (dataBase.isExist(player_name)) {
+                    dataBase.increaseData(player_name, "Bank", amount, "int");
+                }
+                dataBase.close();
+                return true;
+            }
+
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
         } catch (IOException e) {

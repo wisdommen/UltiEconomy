@@ -1,6 +1,7 @@
 package com.minecraft.economy.apis;
 
 import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.database.DataBase;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -27,12 +28,38 @@ public class checkMoney {
 
     //输入：（String）玩家名
     //输出：（Integer）玩家剩余的金币，输出-1为未找到玩家信息
-    public static int check(String player_name) {
-        if (player_file_exists(player_name)) {
-            YamlConfiguration config = load_config(get_player_file(player_name));
-            return config.getInt("money");
-        } else {
-            return -1;
+    public static int checkmoney(String player_name) {
+        DataBase dataBase = Economy.dataBase;
+
+        if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
+            if (player_file_exists(player_name)) {
+                YamlConfiguration config = load_config(get_player_file(player_name));
+                return config.getInt("money");
+            }
+        }else {
+            dataBase.connect();
+            if (dataBase.isExist(player_name)){
+                return Integer.parseInt((String) dataBase.getData(player_name, "Money"));
+            }
         }
+        return -1;
+    }
+
+    //输入：（String）玩家名
+    //输出：（Integer）玩家剩余的金币，输出-1为未找到玩家信息
+    public static int checkbank(String player_name) {
+        DataBase dataBase = Economy.dataBase;
+        if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
+            if (player_file_exists(player_name)) {
+                YamlConfiguration config = load_config(get_player_file(player_name));
+                return config.getInt("bank");
+            }
+        }else {
+            dataBase.connect();
+            if (dataBase.isExist(player_name)){
+                return Integer.parseInt((String) dataBase.getData(player_name, "Bank"));
+            }
+        }
+        return -1;
     }
 }

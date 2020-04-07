@@ -1,6 +1,8 @@
 package com.minecraft.economy.bank;
 
 import com.minecraft.economy.apis.checkMoney;
+import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.database.DataBase;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,31 +13,27 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 
+import static com.minecraft.economy.apis.addMoney.addToBank;
+import static com.minecraft.economy.apis.checkMoney.checkbank;
+import static com.minecraft.economy.apis.checkMoney.checkmoney;
+import static com.minecraft.economy.apis.transfer.transferMoneyToBank;
+
 public class ck implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            File file = checkMoney.get_player_file(player.getName());
-            YamlConfiguration config = checkMoney.load_config(file);
             if (command.getName().equalsIgnoreCase("ck")) {
                 if (strings.length == 1) {
                     try {
                         int ckmoney = Integer.parseInt(strings[0]);
-                        int currentCkmoney = config.getInt("bank");
                         if (ckmoney >= 0) {
-                            int currentMoney = config.getInt("money");
+                            int currentMoney = checkmoney(player.getName());
                             if (currentMoney - ckmoney >= 0) {
-                                config.set("bank", currentCkmoney + ckmoney);
-                                config.set("money", currentMoney - ckmoney);
-                                try {
-                                    config.save(file);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                                transferMoneyToBank(player.getName(), ckmoney);
                                 player.sendMessage(ChatColor.BLUE + "你已存入" + ckmoney + "枚金币！");
-                                player.sendMessage(ChatColor.GREEN + "存款余额：" + config.getInt("bank"));
-                                player.sendMessage(ChatColor.GREEN + "现金余额：" + config.getInt("money"));
+                                player.sendMessage(ChatColor.GREEN + "存款余额：" + checkbank(player.getName()));
+                                player.sendMessage(ChatColor.GREEN + "现金余额：" + checkmoney(player.getName()));
                                 return true;
                             } else {
                                 player.sendMessage(ChatColor.RED + "你没有这么多钱！");

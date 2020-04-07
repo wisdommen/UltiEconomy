@@ -1,3 +1,19 @@
+#设置true为使用mysql数据库，设置false为使用yml储存数据
+enableDataBase: false
+
+#以下设置为启用mysql数据库的情况下生效！
+# 填写你的Host, 默认为Localhost
+host: localhost
+# 填写你的Mysql端口, 默认为3306
+port: 3306
+# 填写你的用户名，默认为root
+username: root
+# 填写你的密码
+password: root
+# 填写你需要连接的数据库
+database: minecraft
+
+#以下设置为不启用mysql数据库的情况下生效！
 #利率单位为万分之，只可以是整数！
 interestRate: 3
 #每隔多长时间发一次利息 单位（秒）
