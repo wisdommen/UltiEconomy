@@ -27,7 +27,7 @@ public class MoveData {
         host = Economy.getInstance().getConfig().getString("host");
         database = Economy.getInstance().getConfig().getString("database");
         port = Economy.getInstance().getConfig().getInt("port");
-        table = "player_data";
+        table = "player_economy_data";
 
         dataBase = new LinkedDataBase(new String[]{"Name", "Money", "Bank"});
 
@@ -41,7 +41,7 @@ public class MoveData {
             if (file.isFile()) {
                 YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
                 String player_name = file.getName().replace(".yml", "");
-                System.out.println(player_name);
+                System.out.println("传输"+player_name+"的数据中...");
                 int money = config.getInt("money");
                 int bank = config.getInt("bank");
 
