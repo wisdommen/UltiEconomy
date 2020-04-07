@@ -17,6 +17,9 @@ commands:
     permissions:
       givemoney.use:
         defailt: [true]
+  takemoney:
+    description: 拿走玩家的钱
+    usage: /takemoney [玩家] [数字]
   bank:
     description: 显示银行存款
     usage: /bank
@@ -26,3 +29,6 @@ commands:
   ck:
     description: 存款
     usage: /ck [金额]
+  mvdb:
+    description: 数据储存方法转换
+    usage: /mvdb toLocal 启用存到本地 /mvdb toDataBase 启用存到数据库

@@ -1,8 +1,6 @@
-package com.minecraft.economy.giveTakeMoney;
+package com.minecraft.economy.CMDs;
 
 import com.minecraft.economy.apis.takeMoney;
-import com.minecraft.economy.economyMain.Economy;
-import com.minecraft.economy.database.DataBase;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

@@ -1,4 +1,4 @@
-package com.minecraft.economy.giveTakeMoney;
+package com.minecraft.economy.money;
 
 import com.minecraft.economy.economyMain.Economy;
 import com.minecraft.economy.database.DataBase;

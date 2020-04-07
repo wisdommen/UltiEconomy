@@ -1,10 +1,11 @@
 package com.minecraft.economy.economyMain;
 
+import com.minecraft.economy.CMDs.TransferData;
 import com.minecraft.economy.bank.bank;
 import com.minecraft.economy.bank.ck;
 import com.minecraft.economy.bank.qk;
-import com.minecraft.economy.giveTakeMoney.Givemoney;
-import com.minecraft.economy.giveTakeMoney.Pay;
+import com.minecraft.economy.CMDs.Givemoney;
+import com.minecraft.economy.money.Pay;
 import com.minecraft.economy.interest.Interest;
 import com.minecraft.economy.money.Money;
 import com.minecraft.economy.money.onJoin;
@@ -49,7 +50,9 @@ public class Economy extends JavaPlugin {
             database = getConfig().getString("database");
             port = getConfig().getInt("port");
             table = "player_data";
+
             dataBase = new LinkedDataBase(new String[]{"Name", "Money", "Bank"});
+
             dataBase.login(host, String.valueOf(port), username, password, database, table);
             getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件正在接入数据库...");
             dataBase.connect();
@@ -70,6 +73,7 @@ public class Economy extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("bank")).setExecutor(new bank());
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
         Objects.requireNonNull(this.getCommand("pay")).setExecutor(new Pay());
+        Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());
 
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已加载！");
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "作者wisdomme");

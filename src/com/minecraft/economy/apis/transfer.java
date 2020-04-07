@@ -7,9 +7,7 @@ public class transfer {
     public static Boolean transferMoney(String payer, String payee, Integer amount){
         try {
             assert amount >= 0;
-            if (checkMoney.player_file_exists(payer) && checkMoney.player_file_exists(payee)) {
                 return addMoney.addTo(payee, amount) && takeMoney.takeFrom(payer, amount);
-            }
         }catch (AssertionError e){
             System.out.println("数额异常:"+e);
         }
@@ -19,9 +17,7 @@ public class transfer {
     public static Boolean transferMoneyToBank(String player_name, Integer amount){
         try {
             assert amount >= 0;
-            if (checkMoney.player_file_exists(player_name)) {
                 return addMoney.addToBank(player_name, amount) && takeMoney.takeFrom(player_name, amount);
-            }
         }catch (AssertionError e){
             System.out.println("数额异常:"+e);
         }
@@ -31,9 +27,7 @@ public class transfer {
     public static Boolean transferBankToMoney(String player_name, Integer amount){
         try {
             assert amount >= 0;
-            if (checkMoney.player_file_exists(player_name)) {
                 return addMoney.addTo(player_name, amount) && takeMoney.takeFromBank(player_name, amount);
-            }
         }catch (AssertionError e){
             System.out.println("数额异常:"+e);
         }

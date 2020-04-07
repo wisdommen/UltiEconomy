@@ -49,7 +49,7 @@ public class addMoney {
             if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
                 if (checkMoney.player_file_exists(player_name)) {
                     YamlConfiguration config = checkMoney.load_config(checkMoney.get_player_file(player_name));
-                    config.set("bank", checkMoney.checkmoney(player_name) + amount);
+                    config.set("bank", checkMoney.checkbank(player_name) + amount);
                     config.save(checkMoney.get_player_file(player_name));
                 }
                 return true;

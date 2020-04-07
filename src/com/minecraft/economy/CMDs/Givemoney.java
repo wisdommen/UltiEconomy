@@ -1,4 +1,4 @@
-package com.minecraft.economy.giveTakeMoney;
+package com.minecraft.economy.CMDs;
 
 import com.minecraft.economy.apis.addMoney;
 import org.bukkit.Bukkit;
