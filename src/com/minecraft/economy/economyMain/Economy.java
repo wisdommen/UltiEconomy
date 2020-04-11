@@ -49,7 +49,7 @@ public class Economy extends JavaPlugin {
             host = getConfig().getString("host");
             database = getConfig().getString("database");
             port = getConfig().getInt("port");
-            table = "player_data";
+            table = "player_economy_data";
 
             dataBase = new LinkedDataBase(new String[]{"Name", "Money", "Bank"});
 

@@ -2,7 +2,6 @@ package com.minecraft.economy.database;
 
 import com.minecraft.economy.economyMain.Economy;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,8 +41,14 @@ public class MoveData {
                 YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
                 String player_name = file.getName().replace(".yml", "");
                 System.out.println("传输"+player_name+"的数据中...");
-                int money = config.getInt("money");
-                int bank = config.getInt("bank");
+                int money, bank;
+                if (file.length()!=0) {
+                    money = config.getInt("money");
+                    bank = config.getInt("bank");
+                }else {
+                    money = 0;
+                    bank = 0;
+                }
 
                 dataBase.connect();
                 if (dataBase.isExist(player_name)) {

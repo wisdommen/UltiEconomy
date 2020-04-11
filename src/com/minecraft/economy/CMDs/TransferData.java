@@ -36,13 +36,14 @@ public class TransferData implements CommandExecutor {
                             }
                             commandSender.sendMessage(ChatColor.RED + "经济插件已切换至YML方式储存数据！");
                             commandSender.sendMessage(ChatColor.RED + "已将玩家数据从数据库移动到本地！");
+                            Economy.getInstance().reloadConfig();
 
                         }else {
                             commandSender.sendMessage(ChatColor.RED + "玩家数据已经存在本地！");
                         }
                         return true;
 
-                    case "toDatabase":
+                    case "toDataBase":
                         if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
                             try {
                                 MoveDataFromLocal();
@@ -53,6 +54,7 @@ public class TransferData implements CommandExecutor {
                             }
                             commandSender.sendMessage(ChatColor.RED + "经济插件已切换至数据库储存数据！");
                             commandSender.sendMessage(ChatColor.RED + "已将玩家数据从本地移动到数据库！");
+                            Economy.getInstance().reloadConfig();
 
                         }else {
                             commandSender.sendMessage(ChatColor.RED + "玩家数据已经存在数据库！");
