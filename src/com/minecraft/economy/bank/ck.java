@@ -1,19 +1,11 @@
 package com.minecraft.economy.bank;
 
-import com.minecraft.economy.apis.checkMoney;
-import com.minecraft.economy.economyMain.Economy;
-import com.minecraft.economy.database.DataBase;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.io.IOException;
-
-import static com.minecraft.economy.apis.addMoney.addToBank;
 import static com.minecraft.economy.apis.checkMoney.checkbank;
 import static com.minecraft.economy.apis.checkMoney.checkmoney;
 import static com.minecraft.economy.apis.transfer.transferMoneyToBank;
@@ -27,7 +19,7 @@ public class ck implements CommandExecutor {
                 if (strings.length == 1) {
                     try {
                         int ckmoney = Integer.parseInt(strings[0]);
-                        if (ckmoney >= 0) {
+                        if (ckmoney >= 1000) {
                             int currentMoney = checkmoney(player.getName());
                             if (currentMoney - ckmoney >= 0) {
                                 transferMoneyToBank(player.getName(), ckmoney);
@@ -39,6 +31,8 @@ public class ck implements CommandExecutor {
                                 player.sendMessage(ChatColor.RED + "你没有这么多钱！");
                                 return true;
                             }
+                        }else {
+                            player.sendMessage(ChatColor.GOLD+"无法存入小于1000的数额！");
                         }
                     } catch (NumberFormatException e) {
                         player.sendMessage(ChatColor.RED + "格式错误！");

@@ -1,7 +1,5 @@
 package com.minecraft.economy.apis;
 
-import com.minecraft.economy.database.DataBase;
-
 public class transfer {
 
     public static Boolean transferMoney(String payer, String payee, Integer amount){

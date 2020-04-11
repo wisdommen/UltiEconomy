@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static com.minecraft.economy.apis.addMoney.addTo;
 import static com.minecraft.economy.apis.addMoney.addToBank;
 
 

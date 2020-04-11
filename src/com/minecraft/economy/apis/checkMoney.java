@@ -41,6 +41,7 @@ public class checkMoney {
             if (dataBase.isExist(player_name)){
                 return Integer.parseInt((String) dataBase.getData(player_name, "Money"));
             }
+            dataBase.close();
         }
         return -1;
     }
@@ -59,6 +60,7 @@ public class checkMoney {
             if (dataBase.isExist(player_name)){
                 return Integer.parseInt((String) dataBase.getData(player_name, "Bank"));
             }
+            dataBase.close();
         }
         return -1;
     }

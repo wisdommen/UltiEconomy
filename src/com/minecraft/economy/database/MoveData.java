@@ -2,7 +2,6 @@ package com.minecraft.economy.database;
 
 import com.minecraft.economy.economyMain.Economy;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
