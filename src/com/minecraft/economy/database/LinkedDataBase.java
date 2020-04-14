@@ -30,7 +30,7 @@ public class LinkedDataBase implements DataBase {
             this.field.add(filed);
         }
 
-        this.key = (String)this.field.get(0);
+        this.key = this.field.get(0);
     }
 
     public void login(String ip, String port, String user, String password, String database, String table) {
@@ -113,11 +113,11 @@ public class LinkedDataBase implements DataBase {
     public void addData(List<String> data) {
         try {
             PreparedStatement ps = this.connect.prepareStatement("select * from " + this.SqlTable + " where " + this.key + "=?");
-            ps.setString(1, (String)data.get(0));
+            ps.setString(1, data.get(0));
             this.res = ps.executeQuery();
             if (this.res.next()) {
                 ps = this.connect.prepareStatement("update " + this.SqlTable + " " + this.getSettingSentence(this.field, data) + " where " + this.key + "=?");
-                ps.setString(1, (String)data.get(0));
+                ps.setString(1, data.get(0));
                 ps.executeUpdate();
             } else {
                 ps = this.connect.prepareStatement("insert into " + this.SqlTable + " values(" + this.getInsertSentence(data) + ")");
@@ -267,7 +267,7 @@ public class LinkedDataBase implements DataBase {
         StringBuilder builder = new StringBuilder();
 
         for(int i = 0; i < fields.size(); ++i) {
-            builder.append("set " + (String)fields.get(i) + "='" + (String)data.get(i) + "'" + (i == fields.size() - 1 ? "" : " , "));
+            builder.append("set " + fields.get(i) + "='" + data.get(i) + "'" + (i == fields.size() - 1 ? "" : " , "));
         }
 
         return builder.toString();

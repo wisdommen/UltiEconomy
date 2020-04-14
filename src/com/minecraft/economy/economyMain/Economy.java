@@ -24,8 +24,8 @@ public class Economy extends JavaPlugin {
 
     private static Economy plugin;
 
-    private String username, host, password, database, table;
-    private int port;
+    public static String username, host, password, database, table;
+    public static int port;
 
     public static DataBase dataBase;
 
