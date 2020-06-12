@@ -15,8 +15,7 @@ import static com.minecraft.economy.database.MoveData.MoveDataFromLocal;
 import static com.minecraft.economy.database.MoveData.MoveDataToLocal;
 
 public class TransferData implements CommandExecutor {
-
-
+    
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)){
@@ -60,11 +59,11 @@ public class TransferData implements CommandExecutor {
                             commandSender.sendMessage(ChatColor.RED + "玩家数据已经存在数据库！");
                         }
                         return true;
-                    default:
-                        return false;
                 }
 
             }
+        }else {
+            commandSender.sendMessage(ChatColor.RED+"这个指令只可以在后台运行！");
         }
         return false;
     }
