@@ -19,15 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="">
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="BUG修复&#10;1.修复玩家取出存款导致存款数额异常的问题&#10;2.改正数据库移动失败提示">
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Vault.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/lib/Vault.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Economy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Economy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysqlAPI.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/TransferData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/TransferData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/takeMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/takeMoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Economy/com/minecraft/economy/CMDs/TransferData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Economy/com/minecraft/economy/CMDs/TransferData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Economy/com/minecraft/economy/apis/takeMoney.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Economy/com/minecraft/economy/apis/takeMoney.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586047877767</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="BUG修复&#10;1.修复玩家取出存款导致存款数额异常的问题&#10;2.改正数据库移动失败提示">
+      <created>1591933431190</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591933431190</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +142,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修复无法从后台给玩家转账的bug&#10;修复了玩家金币数为0时无法增加金币的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复无法从后台给玩家转账的bug&#10;修复了玩家金币数为0时无法增加金币的bug" />
+    <MESSAGE value="BUG修复&#10;1.修复玩家取出存款导致存款数额异常的问题&#10;2.改正数据库移动失败提示" />
+    <option name="LAST_COMMIT_MESSAGE" value="BUG修复&#10;1.修复玩家取出存款导致存款数额异常的问题&#10;2.改正数据库移动失败提示" />
   </component>
   <component name="WindowStateProjectService">
     <state x="208" y="43" key="SettingsEditor" timestamp="1591924896691">
@@ -145,6 +151,10 @@
     </state>
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1591924896691" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591924146564" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1591933443023">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1591933443023" />
     <state x="417" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591924801684">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
