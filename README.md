@@ -84,6 +84,7 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
         public void onDisable() {
             getServer().getConsoleSender().sendMessage("插件已卸载！");
         }
+    }
 
 ### 在其他类中
 
