@@ -2,9 +2,10 @@
   <artifact type="jar" build-on-make="true" name="UltiEconomy">
     <output-path>$PROJECT_DIR$/../Minecraft/lib/plugins/plugins</output-path>
     <root id="archive" name="UltiEconomy.jar">
-      <element id="module-output" name="Economy" />
+      <element id="module-output" name="UltiEconomy" />
       <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" />
+      <element id="library" level="project" name="VaultAPI-1.7" />
     </root>
   </artifact>
 </component>

@@ -1,6 +1,7 @@
 package com.minecraft.economy.money;
 
-import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.database.DataBase;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -13,16 +14,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.minecraft.economy.apis.checkMoney.get_player_file;
-
 public class onJoin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException {
         Player player = event.getPlayer();
-        DataBase dataBase = Economy.dataBase;
-        if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
-            File file = get_player_file(player.getName());
+        DataBase dataBase = UltiEconomyMain.dataBase;
+        UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
+        if (!UltiEconomyMain.getInstance().getConfig().getBoolean("enableDataBase") && !UltiEconomyMain.getIsVaultInstalled()) {
+            File file = economy.getPlayerFile(player.getName());
             YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
             if (!file.exists()) {
                 config.set("money", 1000);

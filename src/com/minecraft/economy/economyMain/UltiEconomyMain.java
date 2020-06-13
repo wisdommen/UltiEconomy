@@ -1,6 +1,7 @@
 package com.minecraft.economy.economyMain;
 
 import com.minecraft.economy.CMDs.TransferData;
+import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.bank.bank;
 import com.minecraft.economy.bank.ck;
 import com.minecraft.economy.bank.qk;
@@ -11,7 +12,9 @@ import com.minecraft.economy.money.Money;
 import com.minecraft.economy.money.onJoin;
 import com.minecraft.economy.database.DataBase;
 import com.minecraft.economy.database.LinkedDataBase;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -20,14 +23,43 @@ import java.util.Objects;
 
 
 // 这是我以前刚开始学Bukkit开发的时候写的，后来我重构过，相当于重置版，但是仍有许多写的垃圾的地方，请多包涵。
-public class Economy extends JavaPlugin {
+public class UltiEconomyMain extends JavaPlugin {
 
-    private static Economy plugin;
+    private static UltiEconomyMain plugin;
 
     public static String username, host, password, database, table;
     public static int port;
 
+    private static Economy econ = null;
+    private static Boolean isVaultInstalled;
+
+    private static UltiEconomy ultiEconomy = new UltiEconomy();
+
     public static DataBase dataBase;
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+        econ = rsp.getProvider();
+        return econ != null;
+    }
+
+    public static Economy getEcon() {
+        return econ;
+    }
+
+    public static Boolean getIsVaultInstalled() {
+        return isVaultInstalled;
+    }
+
+    public static UltiEconomy getUltiEconomy() {
+        return ultiEconomy;
+    }
 
     @Override
     public void onEnable() {
@@ -41,6 +73,9 @@ public class Economy extends JavaPlugin {
             playerDataFolder.mkdirs();
         }
         int time = getConfig().getInt("interestTime");
+
+        // 检查是否安装了vault，两个经济插件蛮怪的，8过没办法，球球大家用俺的吧
+        isVaultInstalled = setupEconomy();
 
         //是否启用数据库
         if (getConfig().getBoolean("enableDataBase")) {
@@ -62,8 +97,10 @@ public class Economy extends JavaPlugin {
             getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已接入数据库！");
         }
         //利息任务
-        BukkitTask t1 = new Interest().runTaskTimer(this, 0, time * 20L);
-        getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "已开启利息！");
+        if (getConfig().getBoolean("enableInterest")) {
+            BukkitTask t1 = new Interest().runTaskTimer(this, 0, time * 20L);
+            getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "已开启利息！");
+        }
         //新玩家入服检测
         getServer().getPluginManager().registerEvents(new onJoin(), this);
         //注册命令
@@ -79,7 +116,7 @@ public class Economy extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "作者wisdomme");
     }
 
-    public static Economy getInstance() {
+    public static UltiEconomyMain getInstance() {
         return plugin;
     }
 

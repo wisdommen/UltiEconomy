@@ -1,8 +1,8 @@
 package com.minecraft.economy.interest;
 
-import com.minecraft.economy.apis.checkMoney;
+import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.database.DataBase;
-import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -13,24 +13,23 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static com.minecraft.economy.apis.addMoney.addToBank;
-
 
 public class Interest extends BukkitRunnable {
 
     @Override
     public void run() {
-        String path = Economy.getInstance().getDataFolder() + "/playerData";
+        String path = UltiEconomyMain.getInstance().getDataFolder() + "/playerData";
         File file = new File(path);
         File[] array = file.listFiles();
-        DataBase dataBase = Economy.dataBase;
+        DataBase dataBase = UltiEconomyMain.dataBase;
+        UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
         assert array != null;
-        double interest_rate = Economy.getInstance().getConfig().getDouble("interestRate");
+        double interest_rate = UltiEconomyMain.getInstance().getConfig().getDouble("interestRate");
 
-        if (!Economy.getInstance().getConfig().getBoolean("enableDataBase")) {
+        if (!UltiEconomyMain.getInstance().getConfig().getBoolean("enableDataBase")) {
             for (File value : array) {
                 if (value.isFile()) {
-                    File folder = new File(Economy.getInstance().getDataFolder() + "/playerData");
+                    File folder = new File(UltiEconomyMain.getInstance().getDataFolder() + "/playerData");
                     File f = new File(folder, value.getName());
                     YamlConfiguration config;
                     if (!f.exists()) {
@@ -55,7 +54,7 @@ public class Interest extends BukkitRunnable {
                         }
                     }
                 } else if (value.isDirectory()) {
-                    Economy.getInstance().getServer().getConsoleSender().sendMessage("出错！");
+                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage("出错！");
                 }
             }
         } else {
@@ -64,10 +63,10 @@ public class Interest extends BukkitRunnable {
             for (String player_name : keys) {
                 dataBase.connect();
                 if (dataBase.isExist(player_name)) {
-                    int bank = checkMoney.checkbank(player_name);
+                    int bank = economy.checkBank(player_name);
                     double interests = bank * (interest_rate / 10000);
                     if (interests > 0) {
-                        if (addToBank(player_name, (int) interests)) {
+                        if (economy.addToBank(player_name, (int) interests)) {
                             for (Player onlineplayer : Bukkit.getOnlinePlayers()) {
                                 if (player_name.equals(onlineplayer.getName())) {
                                     onlineplayer.sendMessage(ChatColor.GOLD + "你已收到来自银行的利息！");

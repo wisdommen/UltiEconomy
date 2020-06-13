@@ -17,6 +17,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Bukkit-1.15.2" level="project" />
-    <orderEntry type="library" name="Vault" level="project" />
+    <orderEntry type="library" name="VaultAPI-1.7" level="project" />
   </component>
 </module>

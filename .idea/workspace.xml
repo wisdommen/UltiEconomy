@@ -19,10 +19,39 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="YML文件改进&#10;1.优化注释，使其不会消失">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Vault.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Vault.jar" afterDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="YML文件bug修复&#10;1.修复了读取错误的bug">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/VaultAPI_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/VaultAPI-1.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomyAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Vault.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Economy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltiEconomy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Vault.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Economy/com/minecraft/economy/money/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Economy/com/minecraft/economy/money/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/Givemoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/Givemoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/TransferData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/TransferData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/seizeMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/seizeMoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/addMoney.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/checkMoney.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/takeMoney.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/transfer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/bank/bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/bank/bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/bank/ck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/bank/ck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/bank/qk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/bank/qk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/database/LinkedDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/database/LinkedDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/database/MoveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/database/MoveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/Economy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/UltiEconomyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/interest/Interest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/interest/Interest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/Pay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/Pay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/onJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/onJoin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,27 +64,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>load</find>
-      <find>.yml</find>
-      <find>file</find>
-      <find>string</find>
-      <find>uuid</find>
-      <find>config.getInt(&quot;money&quot;)</find>
-      <find>commandsender</find>
-      <find>givemoney</find>
-      <find>dataBase.connect()</find>
-      <find>dataBase.connect();</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>checkMoney.check(player.getName())</replace>
-      <replace>player</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -84,19 +96,69 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="C:\Users\wisdomme\eclipse-workspace\Economy" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\wisdomme\eclipse-workspace\Economy" />
-    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="UltiEconomy" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="UltiEconomy" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -130,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591955296710</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="YML文件bug修复&#10;1.修复了读取错误的bug">
+      <created>1592009121006</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592009121006</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,27 +212,49 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修复无法从后台给玩家转账的bug&#10;修复了玩家金币数为0时无法增加金币的bug" />
     <MESSAGE value="BUG修复&#10;1.修复玩家取出存款导致存款数额异常的问题&#10;2.改正数据库移动失败提示" />
     <MESSAGE value="YML文件改进&#10;1.优化注释，使其不会消失" />
-    <option name="LAST_COMMIT_MESSAGE" value="YML文件改进&#10;1.优化注释，使其不会消失" />
+    <MESSAGE value="YML文件bug修复&#10;1.修复了读取错误的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="YML文件bug修复&#10;1.修复了读取错误的bug" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="208" y="43" key="SettingsEditor" timestamp="1591924896691">
+    <state x="456" y="234" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1592054066679">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1591924896691" />
+    <state x="456" y="234" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592054066679" />
+    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser" timestamp="1592053769004">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592053769004" />
+    <state x="456" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592054965674">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="456" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592054965674" />
+    <state x="208" y="43" key="SettingsEditor" timestamp="1592040425935">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592040425935" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591924146564" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1591955322330">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592009133019">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1591955322330" />
-    <state x="417" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591924801684">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592009133019" />
+    <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="417" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1591924801684" />
+    <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592031278612" />
+    <state x="88" y="84" key="new project wizard" timestamp="1592031359697">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="88" y="84" key="new project wizard/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592031359697" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1592031324537">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592031324537" />
   </component>
   <component name="ideajad">
     <property name="annotate" value="false" />

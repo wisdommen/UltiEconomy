@@ -1,8 +1,8 @@
 package com.minecraft.economy.money;
 
 
-import com.minecraft.economy.apis.checkMoney;
-import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.database.DataBase;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -17,9 +17,10 @@ public class Money implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            DataBase dataBase = Economy.dataBase;
+            UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
+            DataBase dataBase = UltiEconomyMain.dataBase;
             if (command.getName().equalsIgnoreCase("money") && strings.length == 0) {
-                player.sendMessage(ChatColor.GOLD + "你有" + checkMoney.checkmoney(player.getName()) + "枚金币！");
+                player.sendMessage(ChatColor.GOLD + "你有" + economy.checkMoney(player.getName()) + "枚金币！");
                 return true;
             }
         }
