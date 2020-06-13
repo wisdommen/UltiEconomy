@@ -1,6 +1,7 @@
 package com.minecraft.economy.CMDs;
 
-import com.minecraft.economy.apis.addMoney;
+import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -12,10 +13,11 @@ public class Givemoney implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) {
+            UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
             if (command.getName().equalsIgnoreCase("givemoney") && strings.length == 2) {
                 Integer amount = Integer.parseInt(strings[1]);
 
-                if (addMoney.addTo(strings[0], amount)) {
+                if (economy.addTo(strings[0], amount)) {
                     commandSender.sendMessage(ChatColor.GOLD + "你已转账" + amount + "枚金币给" + strings[0] + "！");
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         if (strings[0].equals(players.getName())) {

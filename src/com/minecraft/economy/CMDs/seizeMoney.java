@@ -1,6 +1,7 @@
 package com.minecraft.economy.CMDs;
 
-import com.minecraft.economy.apis.takeMoney;
+import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -13,10 +14,11 @@ public class seizeMoney implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) {
+            UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
             if (command.getName().equalsIgnoreCase("takemoney") && strings.length == 2) {
                 int amount = Integer.parseInt(strings[1]);
 
-                if (takeMoney.takeFrom(strings[0], amount)) {
+                if (economy.takeFrom(strings[0], amount)) {
                     commandSender.sendMessage(ChatColor.GOLD + "你已从" + strings[0] + "夺取" + amount + "枚金币！");
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         if (strings[0].equals(players.getName())) {
@@ -24,7 +26,7 @@ public class seizeMoney implements CommandExecutor {
                         }
                     }
                     return true;
-                } else if (takeMoney.takeFromBank(strings[0], amount)){
+                } else if (economy.takeFromBank(strings[0], amount)) {
                     commandSender.sendMessage(ChatColor.GOLD + "你已从" + strings[0] + "的银行里夺取" + amount + "枚金币！");
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         if (strings[0].equals(players.getName())) {

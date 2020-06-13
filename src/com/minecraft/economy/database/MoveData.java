@@ -1,6 +1,7 @@
 package com.minecraft.economy.database;
 
-import com.minecraft.economy.economyMain.Economy;
+import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -8,24 +9,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.minecraft.economy.apis.checkMoney.checkbank;
-import static com.minecraft.economy.apis.checkMoney.checkmoney;
-
 public class MoveData {
 
     public static boolean MoveDataFromLocal(){
-        String path = Economy.getInstance().getDataFolder() + "/playerData";
+        String path = UltiEconomyMain.getInstance().getDataFolder() + "/playerData";
         File files = new File(path);
         File[] array = files.listFiles();
         DataBase dataBase;
         String username, password, host, database, table;
         int port;
 
-        username = Economy.getInstance().getConfig().getString("username");
-        password = Economy.getInstance().getConfig().getString("password");
-        host = Economy.getInstance().getConfig().getString("host");
-        database = Economy.getInstance().getConfig().getString("database");
-        port = Economy.getInstance().getConfig().getInt("port");
+        username = UltiEconomyMain.getInstance().getConfig().getString("username");
+        password = UltiEconomyMain.getInstance().getConfig().getString("password");
+        host = UltiEconomyMain.getInstance().getConfig().getString("host");
+        database = UltiEconomyMain.getInstance().getConfig().getString("database");
+        port = UltiEconomyMain.getInstance().getConfig().getInt("port");
         table = "player_economy_data";
 
         dataBase = new LinkedDataBase(new String[]{"Name", "Money", "Bank"});
@@ -70,10 +68,11 @@ public class MoveData {
     }
 
     public static boolean MoveDataToLocal() throws IOException {
-        String path = Economy.getInstance().getDataFolder() + "/playerData";
+        String path = UltiEconomyMain.getInstance().getDataFolder() + "/playerData";
         File files = new File(path);
         File[] array = files.listFiles();
-        DataBase dataBase = Economy.dataBase;
+        DataBase dataBase = UltiEconomyMain.dataBase;
+        UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
         assert array != null;
         dataBase.connect();
 
@@ -81,8 +80,8 @@ public class MoveData {
             File file = new File(path, player_name+".yml");
             YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
-            int money = checkmoney(player_name);
-            int bank = checkbank(player_name);
+            int money = economy.checkMoney(player_name);
+            int bank = economy.checkBank(player_name);
 
             config.set("money", money);
             config.set("bank", bank);

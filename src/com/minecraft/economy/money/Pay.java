@@ -1,7 +1,7 @@
 package com.minecraft.economy.money;
 
-import com.minecraft.economy.economyMain.Economy;
-import com.minecraft.economy.database.DataBase;
+import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -9,7 +9,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static com.minecraft.economy.apis.transfer.transferMoney;
 
 public class Pay implements CommandExecutor {
 
@@ -17,16 +16,17 @@ public class Pay implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
+            UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
             Player player = (Player) commandSender;
 
             if (command.getName().equalsIgnoreCase("pay")) {
                 if (strings.length == 2) {
-                    if (transferMoney(player.getName(), strings[0], Integer.parseInt(strings[1]))) {
+                    if (economy.transferMoney(player.getName(), strings[0], Integer.parseInt(strings[1]))) {
                         try {
                             player.sendMessage(ChatColor.GOLD + "你已转账" + strings[1] + "枚金币给" + strings[0] + "！");
-                            for (Player onlineplayer : Bukkit.getOnlinePlayers()) {
-                                if (strings[0].equals(onlineplayer.getName())) {
-                                    onlineplayer.sendMessage(ChatColor.GOLD + "你收到一笔来自" + player.getName() + "的" + strings[1] + "枚金币！");
+                            for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                                if (strings[0].equals(onlinePlayer.getName())) {
+                                    onlinePlayer.sendMessage(ChatColor.GOLD + "你收到一笔来自" + player.getName() + "的" + strings[1] + "枚金币！");
                                 }
                             }
                             return true;

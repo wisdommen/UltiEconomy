@@ -25,7 +25,7 @@ public class LinkedDataBase implements DataBase {
         String[] var5 = fields;
         int var4 = fields.length;
 
-        for(int var3 = 0; var3 < var4; ++var3) {
+        for (int var3 = 0; var3 < var4; ++var3) {
             String filed = var5[var3];
             this.field.add(filed);
         }
@@ -157,19 +157,19 @@ public class LinkedDataBase implements DataBase {
 
     public void increaseData(String keydata, String value, Object valuedata, String datatype) {
         try {
-            this.res = this.statement.executeQuery("select "+value+" from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
+            this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
             if (this.res.next()) {
                 Object temp = this.res.getString(1);
-                if (datatype.equals("int")){
+                if (datatype.equals("int")) {
                     int data = Integer.parseInt(temp.toString());
-                    int valueupdated = ((int)valuedata)+data;
+                    int valueupdated = ((int) valuedata) + data;
                     if (!this.res.next()) {
                         this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
                         this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
                     }
-                }else if (datatype.equals("double")){
+                } else if (datatype.equals("double")) {
                     double data = Double.parseDouble(temp.toString());
-                    double valueupdated = ((double)valuedata)+data;
+                    double valueupdated = ((double) valuedata) + data;
                     if (!this.res.next()) {
                         this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
                         this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
@@ -183,19 +183,19 @@ public class LinkedDataBase implements DataBase {
 
     public void reduceData(String keydata, String value, Object valuedata, String datatype) {
         try {
-            this.res = this.statement.executeQuery("select "+value+" from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
+            this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
             if (this.res.next()) {
                 Object temp = this.res.getString(1);
-                if (datatype.equals("int")){
+                if (datatype.equals("int")) {
                     int data = Integer.parseInt(temp.toString());
-                    int valueupdated = data-((int)valuedata);
+                    int valueupdated = data - ((int) valuedata);
                     if (!this.res.next()) {
                         this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
                         this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
                     }
-                }else if (datatype.equals("double")){
+                } else if (datatype.equals("double")) {
                     double data = Double.parseDouble(temp.toString());
-                    double valueupdated = data-((double)valuedata);
+                    double valueupdated = data - ((double) valuedata);
                     if (!this.res.next()) {
                         this.res = this.statement.executeQuery("select " + value + " from " + this.SqlTable + " where " + this.key + "='" + keydata + "'");
                         this.statement.executeUpdate("update " + this.SqlTable + " set " + value + "='" + valueupdated + "' where " + this.key + "='" + keydata + "'");
@@ -227,7 +227,7 @@ public class LinkedDataBase implements DataBase {
             this.res = ps.executeQuery();
             ArrayList args = new ArrayList();
 
-            while(this.res.next()) {
+            while (this.res.next()) {
                 args.add(this.res.getString(1));
             }
 
@@ -254,7 +254,7 @@ public class LinkedDataBase implements DataBase {
         String[] var6;
         int var5 = (var6 = this.fields).length;
 
-        for(int var4 = 0; var4 < var5; ++var4) {
+        for (int var4 = 0; var4 < var5; ++var4) {
             String arg = var6[var4];
             ++i;
             builder.append(arg + " TEXT" + (i == this.fields.length ? "" : ","));
@@ -266,7 +266,7 @@ public class LinkedDataBase implements DataBase {
     private String getSettingSentence(List<String> fields, List<String> data) {
         StringBuilder builder = new StringBuilder();
 
-        for(int i = 0; i < fields.size(); ++i) {
+        for (int i = 0; i < fields.size(); ++i) {
             builder.append("set " + fields.get(i) + "='" + data.get(i) + "'" + (i == fields.size() - 1 ? "" : " , "));
         }
 
@@ -277,8 +277,8 @@ public class LinkedDataBase implements DataBase {
         StringBuilder builder = new StringBuilder();
         Iterator var4 = data.iterator();
 
-        while(var4.hasNext()) {
-            String arg = (String)var4.next();
+        while (var4.hasNext()) {
+            String arg = (String) var4.next();
             builder.append("'" + arg + "'" + (data.indexOf(arg) == data.size() - 1 ? "" : ","));
         }
 
