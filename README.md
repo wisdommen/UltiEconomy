@@ -87,16 +87,15 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
 
 ### 在其他类中
 
-    public class Money implements CommandExecutor {
+    public class subClass implements CommandExecutor {
     
         @Override
         public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
             if (commandSender instanceof Player) {
                 Player player = (Player) commandSender;
-                UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
-                DataBase dataBase = UltiEconomyMain.dataBase;
+                UltiEconomy economy = ExamplePlugin.getEconomy();
                 if (command.getName().equalsIgnoreCase("money") && strings.length == 0) {
-                    player.sendMessage(ChatColor.GOLD + "你有" + economy.checkMoney(player.getName()) + "枚金币！");
+                    player.sendMessage("你有" + economy.checkMoney(player.getName()) + "枚金币！");
                     return true;
                 }
             }
