@@ -29,7 +29,7 @@ public class onJoin implements Listener {
                 config.set("bank", 0);
                 config.save(file);
             }
-        }else {
+        }else if (UltiEconomyMain.getInstance().getConfig().getBoolean("enableDataBase") && !UltiEconomyMain.getIsVaultInstalled()){
             dataBase.connect();
             if (!dataBase.isExist(player.getName())){
                 List<String> data = new ArrayList<>();
