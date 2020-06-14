@@ -18,7 +18,6 @@ public class Money implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
-            DataBase dataBase = UltiEconomyMain.dataBase;
             if (command.getName().equalsIgnoreCase("money") && strings.length == 0) {
                 player.sendMessage(ChatColor.GOLD + "你有" + economy.checkMoney(player.getName()) + "枚金币！");
                 return true;
