@@ -22,11 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="重大更新，适配vault&#10;1. 适配了vault插件&#10;2. 新增了真正的api接口&#10;3. 新增了开启/关闭利息&#10;4. 修复了一大堆bug&#10;5. 重构了部分代码，使得代码更加简洁">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="为UltiEconomyAPI添加javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/Money.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592057336228</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="为UltiEconomyAPI添加javadoc">
+      <created>1592093129698</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592093129698</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,7 +157,8 @@
     <MESSAGE value="YML文件改进&#10;1.优化注释，使其不会消失" />
     <MESSAGE value="YML文件bug修复&#10;1.修复了读取错误的bug" />
     <MESSAGE value="重大更新，适配vault&#10;1. 适配了vault插件&#10;2. 新增了真正的api接口&#10;3. 新增了开启/关闭利息&#10;4. 修复了一大堆bug&#10;5. 重构了部分代码，使得代码更加简洁" />
-    <option name="LAST_COMMIT_MESSAGE" value="重大更新，适配vault&#10;1. 适配了vault插件&#10;2. 新增了真正的api接口&#10;3. 新增了开启/关闭利息&#10;4. 修复了一大堆bug&#10;5. 重构了部分代码，使得代码更加简洁" />
+    <MESSAGE value="为UltiEconomyAPI添加javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="为UltiEconomyAPI添加javadoc" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -176,19 +181,39 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="464" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592091748750" />
+    <state width="1398" height="231" key="GridCell.Tab.0.bottom" timestamp="1592117002991">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
+    <state width="1398" height="231" key="GridCell.Tab.0.center" timestamp="1592117002990">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002990" />
+    <state width="1398" height="231" key="GridCell.Tab.0.left" timestamp="1592117002989">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002989" />
+    <state width="1398" height="231" key="GridCell.Tab.0.right" timestamp="1592117002991">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
     <state x="208" y="43" key="SettingsEditor" timestamp="1592040425935">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592040425935" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591924146564" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592057344327">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592093139062">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592057344327" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592093139062" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592031278612" />
+    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592095642025">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592095642025" />
     <state x="88" y="84" key="new project wizard" timestamp="1592031359697">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
