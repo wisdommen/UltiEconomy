@@ -18,5 +18,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Bukkit-1.15.2" level="project" />
     <orderEntry type="library" name="VaultAPI-1.7" level="project" />
+    <orderEntry type="library" name="PlaceholderAPI-2.10.6" level="project" />
   </component>
 </module>

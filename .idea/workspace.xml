@@ -22,8 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="修复了玩家登入时后台报错的非恶性bug">
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="改正配置文件的一个注释错误">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/PlaceholderAPI_2_10_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/PlaceholderAPI-2.10.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/minecraft/economy/placeholderExpension/UltiEconomyExpansion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UltiEconomy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltiEconomy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/UltiEconomyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/UltiEconomyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +62,15 @@
     </option>
   </component>
   <component name="ProjectId" id="1aTwUo7E2FMlIDYRnZMuxwtkog3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -68,7 +79,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -143,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592135819045</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="改正配置文件的一个注释错误">
+      <created>1592204170711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592204170711</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +177,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="修复无法从后台给玩家转账的bug&#10;修复了玩家金币数为0时无法增加金币的bug" />
     <MESSAGE value="BUG修复&#10;1.修复玩家取出存款导致存款数额异常的问题&#10;2.改正数据库移动失败提示" />
     <MESSAGE value="YML文件改进&#10;1.优化注释，使其不会消失" />
@@ -166,7 +185,8 @@
     <MESSAGE value="重大更新，适配vault&#10;1. 适配了vault插件&#10;2. 新增了真正的api接口&#10;3. 新增了开启/关闭利息&#10;4. 修复了一大堆bug&#10;5. 重构了部分代码，使得代码更加简洁" />
     <MESSAGE value="为UltiEconomyAPI添加javadoc" />
     <MESSAGE value="修复了玩家登入时后台报错的非恶性bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了玩家登入时后台报错的非恶性bug" />
+    <MESSAGE value="改正配置文件的一个注释错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="改正配置文件的一个注释错误" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -177,10 +197,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="456" y="234" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592054066679" />
-    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser" timestamp="1592053769004">
+    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser" timestamp="1592216510802">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592053769004" />
+    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592216510802" />
     <state x="456" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592054965674">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -205,15 +225,15 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
-    <state x="208" y="43" key="SettingsEditor" timestamp="1592040425935">
+    <state x="208" y="43" key="SettingsEditor" timestamp="1592216504735">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592040425935" />
+    <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592216504735" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591924146564" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592135825617">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592204176275">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592135825617" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592204176275" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
