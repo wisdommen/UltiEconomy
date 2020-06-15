@@ -12,6 +12,7 @@ import com.minecraft.economy.money.Money;
 import com.minecraft.economy.money.onJoin;
 import com.minecraft.economy.database.DataBase;
 import com.minecraft.economy.database.LinkedDataBase;
+import com.minecraft.economy.placeholderExpension.UltiEconomyExpansion;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -74,7 +75,7 @@ public class UltiEconomyMain extends JavaPlugin {
         }
         int time = getConfig().getInt("interestTime");
 
-        // 检查是否安装了vault，两个经济插件蛮怪的，8过没办法，球球大家用俺的吧
+        // 检查是否安装了vault
         isVaultInstalled = setupEconomy();
 
         //是否启用数据库
@@ -111,6 +112,10 @@ public class UltiEconomyMain extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
         Objects.requireNonNull(this.getCommand("pay")).setExecutor(new Pay());
         Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());
+
+        if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new UltiEconomyExpansion().register();
+        }
 
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已加载！");
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "作者wisdomme");
