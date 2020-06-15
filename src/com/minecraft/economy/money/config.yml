@@ -12,7 +12,7 @@ password: root
 '注释5请勿修改': '填写你需要连接的数据库'
 database: minecraft
 
-'注释8请勿修改': '利率单位为万分之，只可以是整数！'
+'注释8请勿修改': '是否开启银行利息'
 enableInterest: true
 '注释6请勿修改': '利率单位为万分之，只可以是整数！'
 interestRate: 3

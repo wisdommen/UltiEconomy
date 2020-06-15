@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="为UltiEconomyAPI添加javadoc">
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="修复了玩家登入时后台报错的非恶性bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592093129698</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修复了玩家登入时后台报错的非恶性bug">
+      <created>1592135819045</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592135819045</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,7 +165,8 @@
     <MESSAGE value="YML文件bug修复&#10;1.修复了读取错误的bug" />
     <MESSAGE value="重大更新，适配vault&#10;1. 适配了vault插件&#10;2. 新增了真正的api接口&#10;3. 新增了开启/关闭利息&#10;4. 修复了一大堆bug&#10;5. 重构了部分代码，使得代码更加简洁" />
     <MESSAGE value="为UltiEconomyAPI添加javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="为UltiEconomyAPI添加javadoc" />
+    <MESSAGE value="修复了玩家登入时后台报错的非恶性bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了玩家登入时后台报错的非恶性bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -202,10 +210,10 @@
     </state>
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592040425935" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591924146564" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592093139062">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592135825617">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592093139062" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592135825617" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
