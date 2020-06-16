@@ -22,9 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="适配了PlaceholderAPI，增加了PAPI变量">
-      <change afterPath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/VersionChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy.xml" afterDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="增加了自动检查版本的功能，清理了代码">
+      <change afterPath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/ConfigFileCheck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/UltiEconomyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/UltiEconomyMain.java" afterDir="false" />
@@ -165,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592226294848</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="增加了自动检查版本的功能，清理了代码">
+      <created>1592306803351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1592306803351</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,7 +197,8 @@
     <MESSAGE value="修复了玩家登入时后台报错的非恶性bug" />
     <MESSAGE value="改正配置文件的一个注释错误" />
     <MESSAGE value="适配了PlaceholderAPI，增加了PAPI变量" />
-    <option name="LAST_COMMIT_MESSAGE" value="适配了PlaceholderAPI，增加了PAPI变量" />
+    <MESSAGE value="增加了自动检查版本的功能，清理了代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了自动检查版本的功能，清理了代码" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -235,10 +242,10 @@
     </state>
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1591924146564" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592226302455">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592306828259">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226302455" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592306828259" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

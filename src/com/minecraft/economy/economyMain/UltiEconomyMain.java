@@ -13,6 +13,7 @@ import com.minecraft.economy.money.onJoin;
 import com.minecraft.economy.database.DataBase;
 import com.minecraft.economy.database.LinkedDataBase;
 import com.minecraft.economy.placeholderExpension.UltiEconomyExpansion;
+import com.minecraft.economy.versionChecker.ConfigFileCheck;
 import com.minecraft.economy.versionChecker.VersionChecker;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
@@ -68,12 +69,14 @@ public class UltiEconomyMain extends JavaPlugin {
         plugin = this;
         File folder = new File(String.valueOf(getDataFolder()));
         File playerDataFolder = new File(getDataFolder() + "/playerData");
-        if (!folder.exists()) {
+        File config_file = new File(getDataFolder(), "config.yml");
+        if (!folder.exists() || !config_file.exists()) {
             saveDefaultConfig();
         }
         if (!playerDataFolder.exists()) {
             playerDataFolder.mkdirs();
         }
+        ConfigFileCheck.reviewConfigFile();
         int time = getConfig().getInt("interestTime");
 
         // 检查是否安装了vault
