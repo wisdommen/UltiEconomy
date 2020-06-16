@@ -13,6 +13,8 @@ import com.minecraft.economy.money.onJoin;
 import com.minecraft.economy.database.DataBase;
 import com.minecraft.economy.database.LinkedDataBase;
 import com.minecraft.economy.placeholderExpension.UltiEconomyExpansion;
+import com.minecraft.economy.versionChecker.ConfigFileCheck;
+import com.minecraft.economy.versionChecker.VersionChecker;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -67,12 +69,14 @@ public class UltiEconomyMain extends JavaPlugin {
         plugin = this;
         File folder = new File(String.valueOf(getDataFolder()));
         File playerDataFolder = new File(getDataFolder() + "/playerData");
-        if (!folder.exists()) {
+        File config_file = new File(getDataFolder(), "config.yml");
+        if (!folder.exists() || !config_file.exists()) {
             saveDefaultConfig();
         }
         if (!playerDataFolder.exists()) {
             playerDataFolder.mkdirs();
         }
+        ConfigFileCheck.reviewConfigFile();
         int time = getConfig().getInt("interestTime");
 
         // 检查是否安装了vault
@@ -113,12 +117,17 @@ public class UltiEconomyMain extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("pay")).setExecutor(new Pay());
         Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());
 
-        if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null){
+        if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new UltiEconomyExpansion().register();
         }
 
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已加载！");
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "作者wisdomme");
+
+        //检查更新
+        if (getConfig().getBoolean("enable_version_check")) {
+            VersionChecker.setupThread();
+        }
     }
 
     public static UltiEconomyMain getInstance() {
