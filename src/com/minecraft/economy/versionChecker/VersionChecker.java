@@ -19,7 +19,7 @@ public class VersionChecker {
             public void run() {
                 try {
                     //连接
-                    HttpURLConnection connection = (HttpURLConnection) new URL("https://www.mcbbs.net/thread-1060351-1-1.html").openConnection();
+                    HttpURLConnection connection = (HttpURLConnection) new URL("https://wisdommen.github.io").openConnection();
                     connection.setDoInput(true);
                     connection.setRequestMethod("GET");
                     //伪装
@@ -34,12 +34,11 @@ public class VersionChecker {
                     String data = br.readLine();
                     while (data != null) {
                         //获取带有附件id的文本
-                        if (data.contains("attach_1617160")) {
+                        if (data.contains("UltiEconomy")) {
                             boolean isOutDate = false;
-                            br.readLine();
                             String target = br.readLine();
                             //获取版本
-                            String version = target.split("-")[1].split(".jar")[0];
+                            String version = target.split("version: ")[1].split("<")[0];
                             String current_version = UltiEconomyMain.getInstance().getDescription().getVersion();
                             List<String> current_version_list = Arrays.asList(current_version.split("\\."));
                             List<String> online_version_list = Arrays.asList(version.split("\\."));
@@ -53,7 +52,7 @@ public class VersionChecker {
                                     } else {
                                         UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + "[UltiEconomy] 经济插件有更新，请到mcbbs上下载最新版本！");
                                     }
-                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 下载地址：https://www.mcbbs.net/thread-1060351-1-1.html");
+                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 下载地址：https://github.com/wisdommen/wisdommen.github.io/tree/master/collections/UltiEconomy");
                                     isOutDate = true;
                                     break;
                                 }

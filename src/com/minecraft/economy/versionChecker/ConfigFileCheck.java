@@ -29,7 +29,6 @@ public class ConfigFileCheck {
             UltiEconomyMain.getInstance().saveDefaultConfig();
             YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
             for (String key : configuration.getKeys(false)) {
-                UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(key);
                 if (config.containsKey(key)) {
                     configuration.set(key, config.get(key));
                 }
