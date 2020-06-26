@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="UltiEconomy_mac">
+    <output-path>$PROJECT_DIR$/../Minecraft/lib/plugins</output-path>
+    <root id="archive" name="UltiEconomy_test.jar">
+      <element id="module-output" name="UltiEconomy" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" />
+    </root>
+  </artifact>
+</component>

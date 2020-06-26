@@ -1,6 +1,6 @@
 name: Economy
 main: com.minecraft.economy.economyMain.UltiEconomyMain
-version: 0.2.4
+version: 0.2.5
 api-version: 1.15
 loadbefore: [level, Ultimenu, UltiTools]
 softdepend: [Vault, PlaceholderAPI]
