@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public class UltiEconomy implements UltiEconomyAPI{
+public class UltiEconomy implements UltiEconomyAPI {
 
     @Override
     public File getPlayerFile(String player_name) {
@@ -48,7 +48,13 @@ public class UltiEconomy implements UltiEconomyAPI{
             return -1;
         } else {
             if (Bukkit.getPlayer(player_name) != null) {
-                String money = Pattern.compile("[^0-9]").matcher(UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name)))).replaceAll("").trim();
+                String money = UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name)));
+                if (money.contains(",")) {
+                    money = money.replaceAll(",", "");
+                }
+                if (money.contains(".")){
+                    return Math.round(Float.parseFloat(money));
+                }
                 return Integer.parseInt(money);
             } else {
                 return -1;
@@ -102,11 +108,11 @@ public class UltiEconomy implements UltiEconomyAPI{
                 System.out.println("保存数据异常：" + e);
             }
             return false;
-        }else {
-            if (Bukkit.getPlayer(player_name)!=null) {
+        } else {
+            if (Bukkit.getPlayer(player_name) != null) {
                 EconomyResponse r = UltiEconomyMain.getEcon().depositPlayer(Bukkit.getPlayer(player_name), amount);
                 return r.transactionSuccess();
-            }else {
+            } else {
                 return false;
             }
         }
@@ -124,7 +130,7 @@ public class UltiEconomy implements UltiEconomyAPI{
                     config.set("bank", checkBank(player_name) + amount);
                     config.save(getPlayerFile(player_name));
                 }
-            }else {
+            } else {
                 dataBase.connect();
                 if (dataBase.isExist(player_name)) {
                     dataBase.increaseData(player_name, "Bank", amount, "int");

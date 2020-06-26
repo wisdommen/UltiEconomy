@@ -22,34 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="6.25更新，版本0.2.4&#10;1.优化了自动检查更新功能">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_mac.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/allclasses-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/allclasses-noframe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/UltiEconomyAPI.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/deprecated-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/package-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_alpha.xml" afterDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="6.26更新，版本0.2.5&#10;1.修复了bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/onJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/money/onJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593048298491</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="6.26更新，版本0.2.5&#10;1.修复了bug">
+      <created>1593144538672</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1593144538672</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +227,8 @@
     <MESSAGE value="增加了自动检查config.yml文件&#10;自动检查插件配置文件，并且自动添加最新的配置" />
     <MESSAGE value="清理代码" />
     <MESSAGE value="6.25更新，版本0.2.4&#10;1.优化了自动检查更新功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="6.25更新，版本0.2.4&#10;1.优化了自动检查更新功能" />
+    <MESSAGE value="6.26更新，版本0.2.5&#10;1.修复了bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="6.26更新，版本0.2.5&#10;1.修复了bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -294,11 +277,11 @@
     <state x="277" y="24" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593067868964" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1593124982903" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1593048314067">
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1593145558768">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592312322248" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593048314067" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593145558768" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
