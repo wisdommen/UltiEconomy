@@ -8,7 +8,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UltiEconomy implements UltiEconomyAPI {
@@ -48,10 +51,7 @@ public class UltiEconomy implements UltiEconomyAPI {
             return -1;
         } else {
             if (Bukkit.getPlayer(player_name) != null) {
-                String money = UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name)));
-                if (money.contains(",")) {
-                    money = money.replaceAll(",", "");
-                }
+                String money = getNumber(UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name))));
                 if (money.contains(".")){
                     return Math.round(Float.parseFloat(money));
                 }
@@ -60,6 +60,18 @@ public class UltiEconomy implements UltiEconomyAPI {
                 return -1;
             }
         }
+    }
+
+    public static String getNumber(String str) {
+        List<String> list = Arrays.asList("1", "2", "3", "4", "5","6","7","8","9","0",".");
+        String[] strings = str.split("");
+        String result = "";
+        for (String each : strings){
+            if (list.contains(each)){
+                result = result + each;
+            }
+        }
+        return result;
     }
 
     @Override
