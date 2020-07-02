@@ -23,9 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能">
+      <change afterPath="$PROJECT_DIR$/lib/spigot-1.16.1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/VersionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/VersionChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593495046431</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug">
+      <created>1593565585133</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1593565585133</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,7 +261,8 @@
     <MESSAGE value="6.26更新，版本0.2.6&#10;1.修复了金额格式问题" />
     <MESSAGE value="6.26更新，版本0.2.7&#10;1.修复了金额格式问题" />
     <MESSAGE value="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能" />
+    <MESSAGE value="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -306,10 +315,10 @@
     <state x="277" y="24" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593310805476" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1593124982903" />
-    <state x="427" y="211" key="Vcs.Push.Dialog.v2" timestamp="1593495049834">
+    <state x="427" y="211" key="Vcs.Push.Dialog.v2" timestamp="1593565589757">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="427" y="211" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593495049834" />
+    <state x="427" y="211" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593565589757" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592312322248" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593148512484" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
