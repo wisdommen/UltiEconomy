@@ -52,7 +52,7 @@ public class VersionChecker {
                                     } else {
                                         UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + "[UltiEconomy] 经济插件有更新，请到mcbbs上下载最新版本！");
                                     }
-                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 下载地址：https://github.com/wisdommen/wisdommen.github.io/tree/master/collections/UltiEconomy");
+                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 下载地址：https://www.mcbbs.net/thread-1060351-1-1.html");
                                     isOutDate = true;
                                     break;
                                 }

@@ -4,11 +4,15 @@ import com.minecraft.economy.database.DataBase;
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UltiEconomy implements UltiEconomyAPI {
@@ -48,11 +52,8 @@ public class UltiEconomy implements UltiEconomyAPI {
             return -1;
         } else {
             if (Bukkit.getPlayer(player_name) != null) {
-                String money = UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name)));
-                if (money.contains(",")) {
-                    money = money.replaceAll(",", "");
-                }
-                if (money.contains(".")){
+                String money = getNumber(UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name))));
+                if (money.contains(".")) {
                     return Math.round(Float.parseFloat(money));
                 }
                 return Integer.parseInt(money);
@@ -60,6 +61,18 @@ public class UltiEconomy implements UltiEconomyAPI {
                 return -1;
             }
         }
+    }
+
+    public static String getNumber(String str) {
+        List<String> list = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".");
+        String[] strings = str.split("");
+        String result = "";
+        for (String each : strings) {
+            if (list.contains(each)) {
+                result = result + each;
+            }
+        }
+        return result;
     }
 
     @Override
@@ -173,15 +186,15 @@ public class UltiEconomy implements UltiEconomyAPI {
             } catch (IOException e) {
                 System.out.println("保存数据异常：" + e);
             }
-            return false;
         } else {
-            if (Bukkit.getPlayer(player_name) != null && UltiEconomyMain.getEcon().has(Bukkit.getOfflinePlayer(Objects.requireNonNull(Bukkit.getPlayer(player_name)).getUniqueId()), amount)) {
-                EconomyResponse r = UltiEconomyMain.getEcon().withdrawPlayer(Bukkit.getPlayer(player_name), amount);
-                return r.transactionSuccess();
-            } else {
-                return false;
+            if (Bukkit.getPlayer(player_name) != null) {
+                if (UltiEconomyMain.getEcon().has(Bukkit.getOfflinePlayer(Objects.requireNonNull(Bukkit.getPlayer(player_name)).getUniqueId()), amount)) {
+                    EconomyResponse r = UltiEconomyMain.getEcon().withdrawPlayer(Bukkit.getPlayer(player_name), amount);
+                    return r.transactionSuccess();
+                }
             }
         }
+        return false;
     }
 
     @Override
@@ -192,7 +205,7 @@ public class UltiEconomy implements UltiEconomyAPI {
 
             if (!UltiEconomyMain.getInstance().getConfig().getBoolean("enableDataBase")) {
                 if (playerFileExists(player_name)) {
-                    if (checkMoney(player_name) >= amount) {
+                    if (checkBank(player_name) >= amount) {
                         YamlConfiguration config = loadConfig(getPlayerFile(player_name));
                         config.set("bank", checkBank(player_name) - amount);
                         config.save(getPlayerFile(player_name));
@@ -219,7 +232,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     public Boolean transferMoney(String payer, String payee, Integer amount) {
         try {
             assert amount >= 0;
-            return addTo(payee, amount) && takeFrom(payer, amount);
+            return takeFrom(payer, amount) && addTo(payee, amount);
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
         }
@@ -230,7 +243,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     public Boolean transferMoneyToBank(String player_name, Integer amount) {
         try {
             assert amount >= 0;
-            return addToBank(player_name, amount) && takeFrom(player_name, amount);
+            return takeFrom(player_name, amount) && addToBank(player_name, amount);
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
         }
@@ -241,7 +254,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     public Boolean transferBankToMoney(String player_name, Integer amount) {
         try {
             assert amount >= 0;
-            return addTo(player_name, amount) && takeFromBank(player_name, amount);
+            return  takeFromBank(player_name, amount) && addTo(player_name, amount);
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
         }

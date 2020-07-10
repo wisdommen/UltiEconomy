@@ -22,9 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="6.26更新，版本0.2.5&#10;1.修复了bug">
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能">
+      <change afterPath="$PROJECT_DIR$/lib/spigot-1.16.1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/VersionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/VersionChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="D:/Share/Minecraft/lib/plugins" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -197,7 +199,35 @@
       <option name="project" value="LOCAL" />
       <updated>1593144538672</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="6.26更新，版本0.2.6&#10;1.修复了金额格式问题">
+      <created>1593146730731</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1593146730731</updated>
+    </task>
+    <task id="LOCAL-00016" summary="6.26更新，版本0.2.7&#10;1.修复了金额格式问题">
+      <created>1593148508389</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1593148508389</updated>
+    </task>
+    <task id="LOCAL-00017" summary="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能">
+      <created>1593495046431</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1593495046431</updated>
+    </task>
+    <task id="LOCAL-00018" summary="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug">
+      <created>1593565585133</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1593565585133</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +258,11 @@
     <MESSAGE value="清理代码" />
     <MESSAGE value="6.25更新，版本0.2.4&#10;1.优化了自动检查更新功能" />
     <MESSAGE value="6.26更新，版本0.2.5&#10;1.修复了bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="6.26更新，版本0.2.5&#10;1.修复了bug" />
+    <MESSAGE value="6.26更新，版本0.2.6&#10;1.修复了金额格式问题" />
+    <MESSAGE value="6.26更新，版本0.2.7&#10;1.修复了金额格式问题" />
+    <MESSAGE value="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能" />
+    <MESSAGE value="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -251,6 +285,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="464" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592091748750" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1593474692626">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593474692626" />
     <state x="577" y="190" key="FileChooserDialogImpl" timestamp="1593067862521">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -271,17 +309,18 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
-    <state x="208" y="43" key="SettingsEditor" timestamp="1593124982903">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="277" y="24" key="SettingsEditor" timestamp="1593310805476">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="277" y="24" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593067868964" />
+    <state x="277" y="24" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593310805476" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1593124982903" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1593145558768">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="427" y="211" key="Vcs.Push.Dialog.v2" timestamp="1593565589757">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="427" y="211" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593565589757" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592312322248" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593145558768" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593148512484" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
