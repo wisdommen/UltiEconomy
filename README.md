@@ -46,6 +46,22 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
 
     UltiEconomy economy = UltiTools.getEconomy();
     
+更多的方法调用请看doc文件夹下的Javadoc。
+这里举几个常用的：
+    
+    // 查看玩家现金
+    economy.checkMoney(Player.getName())
+    // 查看玩家银行存款
+    economy.checkBank(Player.getName())
+    // 减少玩家现金
+    economy.takeFrom(Player.getName())
+    // 减少玩家存款
+    economy.takeFromBank(Player.getName())
+    // 添加玩家现金
+    economy.addTo(Player.getName())
+    // 添加玩家存款
+    economy.addToBank(Player.getName())
+    
 ## 完整代码实例：
 
 ### 在主类中：
