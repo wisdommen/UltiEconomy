@@ -12,11 +12,11 @@
 
 然后你需要做的是在主类里新建一个UltiEconomy对象。
 
-    private static UltiEconomy economy;
+    private static UltiEconomyAPI economy;
 
 并且你需要一个getter用来在其他类里获取economy。
 
-    public static UltiEconomy getEconomy() {
+    public static UltiEconomyAPI getEconomy() {
         return economy;
     }
 
@@ -41,10 +41,10 @@
         return;
     }
   
-OK，一切初始化设置完成，接下来你只要在你的其他类里调用:    getEconomy() 即可获取到UltiEconomy对象。
+OK，一切初始化设置完成，接下来你只要在你的其他类里调用:    getEconomy() 即可获取到economy对象。
 例如：
 
-    UltiEconomy economy = UltiTools.getEconomy();
+    UltiEconomyAPI economy = UltiTools.getEconomy();
     
 更多的方法调用请看doc文件夹下的Javadoc。
 这里举几个常用的：
@@ -68,9 +68,9 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
 
     public final class ExamplePlugin extends JavaPlugin {
     
-        private static UltiEconomy economy;
+        private static UltiEconomyAPI economy;
 
-        public static UltiEconomy getEconomy() {
+        public static UltiEconomyAPI getEconomy() {
             return economy;
         }
 
@@ -110,7 +110,7 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
         public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
             if (commandSender instanceof Player) {
                 Player player = (Player) commandSender;
-                UltiEconomy economy = ExamplePlugin.getEconomy();
+                UltiEconomyAPI economy = ExamplePlugin.getEconomy();
                 if (command.getName().equalsIgnoreCase("money") && strings.length == 0) {
                     player.sendMessage("你有" + economy.checkMoney(player.getName()) + "枚金币！");
                     return true;
