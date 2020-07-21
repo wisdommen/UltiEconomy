@@ -22,64 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="7.2更新，版本1.0.0&#10;1.发布了正式版本">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_MilkBowl_VaultAPI_1_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_2_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__me_clip_placeholderapi_2_10_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_48.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_1_R0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabasePlayerTools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_alpha.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_alpha.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_mac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_mac.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/PlaceholderAPI_2_10_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/VaultAPI_1_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体">
+      <change afterPath="$PROJECT_DIR$/.idea/smartfox_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UltiEconomy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltiEconomy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Bukkit-1.15.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/PlaceholderAPI-2.10.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/VaultAPI-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spigot-1.16.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/Givemoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/Givemoney.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/TransferData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/TransferData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/CMDs/seizeMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/seizeMoney.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/apis/UltiEconomyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomyAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/bank/bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/bank/ck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/ck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/bank/qk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/qk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/database/DataBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/database/LinkedDataBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/database/MoveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/database/MoveData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/economyMain/UltiEconomyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/economyMain/UltiEconomyMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/interest/Interest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/interest/Interest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Money.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/Pay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Pay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/money/onJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/onJoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/placeholderExpension/UltiEconomyExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/placeholderExpension/UltiEconomyExpansion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/ConfigFileCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/ConfigFileCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minecraft/economy/versionChecker/VersionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/VersionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomyAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/qk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/qk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593697334883</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体">
+      <created>1595307167857</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1595307167857</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,7 +286,8 @@
     <MESSAGE value="6.30更新，版本0.2.8&#10;1.增加了刷钱预防功能" />
     <MESSAGE value="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug" />
     <MESSAGE value="7.2更新，版本1.0.0&#10;1.发布了正式版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="7.2更新，版本1.0.0&#10;1.发布了正式版本" />
+    <MESSAGE value="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -352,9 +312,10 @@
     </state>
     <state x="649" y="243" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1595291715692" />
     <state x="456" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592054965674" />
-    <state x="464" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1592091748750">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595320567484">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2048.1112@0.0.2048.1112" timestamp="1595320567484" />
     <state x="464" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592091748750" />
     <state x="98" y="98" width="1852" height="916" key="DiffContextDialog" timestamp="1595289571587">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -366,25 +327,25 @@
     </state>
     <state x="577" y="190" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593067862521" />
     <state x="615" y="203" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1594368261269" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1595306706138">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1595338161687">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1595306706138" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161687" />
     <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1595306706138">
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1595338161687">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1595306706138" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161687" />
     <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002990" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1595306706138">
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1595338161686">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1595306706138" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161686" />
     <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002989" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1595306706138">
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1595338161687">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1595306706138" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161687" />
     <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
     <state x="295" y="26" key="SettingsEditor" timestamp="1595290050180">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -393,11 +354,11 @@
     <state x="295" y="26" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1595290050180" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1593124982903" />
-    <state x="455" y="226" key="Vcs.Push.Dialog.v2" timestamp="1593697338604">
+    <state x="455" y="226" key="Vcs.Push.Dialog.v2" timestamp="1595307172141">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="427" y="211" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593565589757" />
-    <state x="455" y="226" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1593697338604" />
+    <state x="455" y="226" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1595307172141" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592312322248" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593148512484" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
@@ -408,9 +369,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="663" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1595153648041" />
-    <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592095642025">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="722" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595308686468">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state x="722" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112@0.0.2048.1112" timestamp="1595308686468" />
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592095642025" />
     <state x="88" y="84" key="new project wizard" timestamp="1592031359697">
       <screen x="0" y="23" width="1440" height="877" />
