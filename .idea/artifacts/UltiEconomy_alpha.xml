@@ -3,9 +3,8 @@
     <output-path>$PROJECT_DIR$/../wisdommen.github.io/collections/UltiEconomy</output-path>
     <root id="archive" name="UltiEconomy_alpha.jar">
       <element id="module-output" name="UltiEconomy" />
-      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/com/minecraft/economy/money/config.yml" />
-      <element id="library" level="project" name="VaultAPI-1.7" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/config.yml" />
     </root>
   </artifact>
 </component>
