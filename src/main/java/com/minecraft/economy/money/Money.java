@@ -10,6 +10,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 
+/**
+ * 查看金币
+ */
 public class Money implements CommandExecutor {
 
     @Override

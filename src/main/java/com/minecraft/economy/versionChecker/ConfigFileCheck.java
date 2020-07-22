@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Config file check.
+ */
 public class ConfigFileCheck {
 
     private static Map<String, Object> getAll(){
@@ -21,6 +24,9 @@ public class ConfigFileCheck {
         return config;
     }
 
+    /**
+     * Review config file.
+     */
     public static void reviewConfigFile(){
         Map<String, Object> config = getAll();
         File file = new File(UltiEconomyMain.getInstance().getDataFolder(), "config.yml");

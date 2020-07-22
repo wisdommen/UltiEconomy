@@ -12,8 +12,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * The type Version checker.
+ */
 public class VersionChecker {
 
+    /**
+     * Sets thread.
+     */
     public static void setupThread() {
         Thread checkVersionThread = new Thread() {
             public void run() {

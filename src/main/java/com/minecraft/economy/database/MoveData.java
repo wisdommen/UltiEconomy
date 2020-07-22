@@ -12,8 +12,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 数据库和本地储存的转换
+ */
 public class MoveData {
 
+    /**
+     * 将数据从本地转移到数据库
+     *
+     * @return the boolean
+     */
     public static boolean MoveDataFromLocal(){
         String path = UltiEconomyMain.getInstance().getDataFolder() + "/playerData";
         File files = new File(path);
@@ -59,6 +67,12 @@ public class MoveData {
         return true;
     }
 
+    /**
+     * 将数据从数据库转移到本地
+     *
+     * @return the boolean
+     * @throws IOException the io exception
+     */
     public static boolean MoveDataToLocal() throws IOException {
         String path = UltiEconomyMain.getInstance().getDataFolder() + "/playerData";
         File files = new File(path);

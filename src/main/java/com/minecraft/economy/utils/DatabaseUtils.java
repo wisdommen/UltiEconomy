@@ -296,7 +296,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          增加的量
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean increaseData(String tableName, String fieldName, String primaryIDField, String id, String value) {
         return increaseData(tableName, fieldName, primaryIDField, id, value, true, null);
@@ -312,7 +312,7 @@ public class DatabaseUtils {
      * @param value           增加的量
      * @param autoCommit      开关自动提交
      * @param otherStatements 其他需要处理的PreparedStatement
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean increaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
@@ -338,7 +338,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          增加的量
-     * @return 一条未执行的预处理statement
+     * @return 一条未执行的预处理statement prepared statement
      */
     public static PreparedStatement increaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
@@ -363,7 +363,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          减少的量
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean decreaseData(String tableName, String fieldName, String primaryIDField, String id, String value) {
         return decreaseData(tableName, fieldName, primaryIDField, id, value, true, null);
@@ -379,7 +379,7 @@ public class DatabaseUtils {
      * @param value           减少的量
      * @param autoCommit      开关自动提交
      * @param otherStatements 其他需要处理的PreparedStatement
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean decreaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
@@ -404,7 +404,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          减少的量
-     * @return 一条未执行的预处理statement
+     * @return 一条未执行的预处理statement prepared statement
      */
     public static PreparedStatement decreaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);

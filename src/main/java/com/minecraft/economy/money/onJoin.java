@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 玩家入服
+ */
 public class onJoin implements Listener {
 
     @EventHandler

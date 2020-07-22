@@ -24,6 +24,9 @@ import java.io.File;
 import java.util.Objects;
 
 
+/**
+ * UltiEconomy主类
+ */
 // 这是我以前刚开始学Bukkit开发的时候写的，后来我重构过，相当于重置版，但是仍有许多写的垃圾的地方，请多包涵。
 public class UltiEconomyMain extends JavaPlugin {
 
@@ -47,14 +50,29 @@ public class UltiEconomyMain extends JavaPlugin {
         return econ != null;
     }
 
+    /**
+     * 获取Vault经济实例
+     *
+     * @return the econ
+     */
     public static Economy getEcon() {
         return econ;
     }
 
+    /**
+     * 获取Vault是否安装
+     *
+     * @return the is vault installed
+     */
     public static Boolean getIsVaultInstalled() {
         return isVaultInstalled;
     }
 
+    /**
+     * 获取UltiEconomy经济对象实例
+     *
+     * @return the ultiEconomy
+     */
     public static UltiEconomy getUltiEconomy() {
         return ultiEconomy;
     }
@@ -121,6 +139,11 @@ public class UltiEconomyMain extends JavaPlugin {
         }
     }
 
+    /**
+     * 获取主类
+     *
+     * @return the instance
+     */
     public static UltiEconomyMain getInstance() {
         return plugin;
     }

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -22,16 +19,107 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体">
-      <change afterPath="$PROJECT_DIR$/.idea/smartfox_info.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="7.21更新，版本2.0.1&#10;1.修复了版本检查报错的问题">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_13_1_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/Givemoney.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/TransferData.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/seizeMoney.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/UltiEconomy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/bank.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/ck.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/qk.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/database/MoveData.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/database/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/database/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/database/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/economyMain/UltiEconomyMain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/economyMain/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/economyMain/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/economyMain/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/interest/Interest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/interest/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/interest/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/interest/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/Money.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/Pay.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/onJoin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/placeholderExpension/UltiEconomyExpansion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/placeholderExpension/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/placeholderExpension/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/placeholderExpension/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/utils/DatabasePlayerTools.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/utils/DatabaseUtils.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/utils/Utils.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/utils/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/utils/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/utils/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/versionChecker/ConfigFileCheck.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/versionChecker/VersionChecker.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/versionChecker/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/versionChecker/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/versionChecker/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-13.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-14.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-15.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-16.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/index-files/index-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/overview-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UltiEconomy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltiEconomy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/UltiEconomyAPI.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/UltiEconomyAPI.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/apis/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/package-list" beforeDir="false" afterPath="$PROJECT_DIR$/doc/package-list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/Givemoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/Givemoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/TransferData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/TransferData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/seizeMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/seizeMoney.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomyAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomyAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/ck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/ck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/qk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/qk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/database/MoveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/database/MoveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/economyMain/UltiEconomyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/economyMain/UltiEconomyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/interest/Interest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/interest/Interest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Pay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Pay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/onJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/onJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/placeholderExpension/UltiEconomyExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/placeholderExpension/UltiEconomyExpansion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabasePlayerTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabasePlayerTools.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/ConfigFileCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/ConfigFileCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/VersionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/VersionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595307167857</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="7.21更新，版本2.0.1&#10;1.修复了版本检查报错的问题">
+      <created>1595338344409</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1595338344409</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,7 +382,8 @@
     <MESSAGE value="7.1更新，版本0.2.9&#10;1.修复了玩家刷钱的bug" />
     <MESSAGE value="7.2更新，版本1.0.0&#10;1.发布了正式版本" />
     <MESSAGE value="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体" />
-    <option name="LAST_COMMIT_MESSAGE" value="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体" />
+    <MESSAGE value="7.21更新，版本2.0.1&#10;1.修复了版本检查报错的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.21更新，版本2.0.1&#10;1.修复了版本检查报错的问题" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -312,10 +408,10 @@
     </state>
     <state x="649" y="243" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1595291715692" />
     <state x="456" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592054965674" />
-    <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595320567484">
+    <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595424631933">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2048.1112@0.0.2048.1112" timestamp="1595320567484" />
+    <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2048.1112@0.0.2048.1112" timestamp="1595424631933" />
     <state x="464" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592091748750" />
     <state x="98" y="98" width="1852" height="916" key="DiffContextDialog" timestamp="1595289571587">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -327,25 +423,25 @@
     </state>
     <state x="577" y="190" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593067862521" />
     <state x="615" y="203" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1594368261269" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1595338161687">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1595424632083">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161687" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1595424632083" />
     <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1595338161687">
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1595424632083">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161687" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1595424632083" />
     <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002990" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1595338161686">
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1595424632083">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161686" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1595424632083" />
     <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002989" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1595338161687">
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1595424632083">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1595338161687" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1595424632083" />
     <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
     <state x="295" y="26" key="SettingsEditor" timestamp="1595290050180">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -354,11 +450,11 @@
     <state x="295" y="26" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1595290050180" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1593124982903" />
-    <state x="455" y="226" key="Vcs.Push.Dialog.v2" timestamp="1595307172141">
+    <state x="455" y="226" key="Vcs.Push.Dialog.v2" timestamp="1595338354275">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="427" y="211" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593565589757" />
-    <state x="455" y="226" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1595307172141" />
+    <state x="455" y="226" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1595338354275" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592312322248" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593148512484" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
@@ -378,6 +474,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="88" y="84" key="new project wizard/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592031359697" />
+    <state x="709" y="364" key="scopes" timestamp="1595423965770">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="709" y="364" key="scopes/0.0.2048.1112@0.0.2048.1112" timestamp="1595423965770" />
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1592031324537">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

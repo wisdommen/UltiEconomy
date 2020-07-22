@@ -1,7 +1,7 @@
 name: UltiEconomy
 main: com.minecraft.economy.economyMain.UltiEconomyMain
 version: ${project.version}
-api-version: 1.15
+api-version: 1.13
 loadbefore: [level, Ultimenu, UltiTools]
 softdepend: [Vault, PlaceholderAPI]
 

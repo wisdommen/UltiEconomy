@@ -5,7 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 
 /**
- * The interface Ulti economy api.
+ * UltieconomyAPI 接口类
  */
 public interface UltiEconomyAPI {
 

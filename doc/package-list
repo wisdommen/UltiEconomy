@@ -1,1 +1,10 @@
+com.minecraft.economy.CMDs
 com.minecraft.economy.apis
+com.minecraft.economy.bank
+com.minecraft.economy.database
+com.minecraft.economy.economyMain
+com.minecraft.economy.interest
+com.minecraft.economy.money
+com.minecraft.economy.placeholderExpension
+com.minecraft.economy.utils
+com.minecraft.economy.versionChecker
