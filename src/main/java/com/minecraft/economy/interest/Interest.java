@@ -10,6 +10,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.File;
 
 
+/**
+ * 利息任务
+ */
 public class Interest extends BukkitRunnable {
 
     @Override

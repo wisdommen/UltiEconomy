@@ -14,6 +14,9 @@ import java.io.IOException;
 import static com.minecraft.economy.database.MoveData.MoveDataFromLocal;
 import static com.minecraft.economy.database.MoveData.MoveDataToLocal;
 
+/**
+ * 数据库和本地储存的转换
+ */
 public class TransferData implements CommandExecutor {
     
     @Override

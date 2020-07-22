@@ -14,6 +14,9 @@ import java.util.Map;
 
 import static com.minecraft.economy.utils.Utils.getEconomyConfig;
 
+/**
+ * 数据库工具
+ */
 public class DatabaseUtils {
 
     private static final String ip = getEconomyConfig().getString("host");
@@ -43,7 +46,7 @@ public class DatabaseUtils {
     /**
      * 获取JDBC连接池
      *
-     * @return JDBC连接池
+     * @return JDBC连接池 data source
      */
     public static DataSource getDataSource() {
         return dataSource;
@@ -54,6 +57,7 @@ public class DatabaseUtils {
      *
      * @param tableName 数据表名称
      * @param fields    数据表表头
+     * @return the boolean
      */
     public static boolean createTable(String tableName, String[] fields) {
         return createTable(tableName, fields, true);
@@ -65,6 +69,7 @@ public class DatabaseUtils {
      * @param tableName  数据表名称
      * @param fields     数据表表头
      * @param autoCommit 开关自动提交机制
+     * @return the boolean
      */
     public static boolean createTable(String tableName, String[] fields, boolean autoCommit) {
         try (Connection connection = dataSource.getConnection()) {
@@ -91,10 +96,11 @@ public class DatabaseUtils {
     /**
      * 获取数据记录
      *
-     * @param id        操作对象id
-     * @param tableName 表名称
-     * @param fieldName 列名称
-     * @return 获取的数据，若未找到数据则返回null
+     * @param primaryIDField the primary id field
+     * @param id             操作对象id
+     * @param tableName      表名称
+     * @param fieldName      列名称
+     * @return 获取的数据 ，若未找到数据则返回null
      */
     public static String getData(String primaryIDField, String id, String tableName, String fieldName) {
         try (Connection connection = dataSource.getConnection()) {
@@ -118,7 +124,7 @@ public class DatabaseUtils {
      *
      * @param tableName 表名
      * @param fieldName 需要获取的列
-     * @return 含有数据的列表
+     * @return 含有数据的列表 list
      */
     public static List<String> getKeys(String tableName, String fieldName){
         List<String> keys = new ArrayList<>();
@@ -141,7 +147,7 @@ public class DatabaseUtils {
      *
      * @param tableName 数据表名称
      * @param dataMap   待插入的数据集
-     * @return 是否成功
+     * @return 是否成功 boolean
      */
     public static boolean insertData(String tableName, Map<String, String> dataMap) {
         return insertData(tableName, dataMap, true);
@@ -153,7 +159,7 @@ public class DatabaseUtils {
      * @param tableName  数据表名称
      * @param dataMap    待插入的数据集
      * @param autoCommit 开关自动提交机制
-     * @return 是否成功
+     * @return 是否成功 boolean
      */
     public static boolean insertData(String tableName, Map<String, String> dataMap, boolean autoCommit) {
         try (Connection connection = dataSource.getConnection()) {
@@ -183,10 +189,10 @@ public class DatabaseUtils {
      *
      * @param tableName      数据表名称
      * @param fieldName      列名称
-     * @param id             记录id
      * @param primaryIDField 表唯一ID
+     * @param id             记录id
      * @param value          更新值
-     * @return 是否成功
+     * @return 是否成功 boolean
      */
     public static boolean updateData(String tableName, String fieldName, String primaryIDField, String id, String value) {
         return updateData(tableName, fieldName, primaryIDField, id, value, true, null);
@@ -202,7 +208,7 @@ public class DatabaseUtils {
      * @param value           更新值
      * @param autoCommit      自动提交
      * @param otherStatements 其他需要执行的SQL语句
-     * @return 是否成功
+     * @return 是否成功 boolean
      */
     public static boolean updateData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
         try (Connection connection = dataSource.getConnection()) {
@@ -242,7 +248,7 @@ public class DatabaseUtils {
      * @param primaryIDField 表唯一ID
      * @param id             记录id
      * @param value          更新值
-     * @return 是否成功
+     * @return 预处理statement prepared statement
      */
     public static PreparedStatement updateDataWait(String tableName, String fieldName, String primaryIDField, String id, String value) {
         try (Connection connection = dataSource.getConnection()) {
@@ -266,7 +272,7 @@ public class DatabaseUtils {
      * @param tableName      表名称
      * @param primaryIDField 唯一ID表头名称
      * @param id             需要查询的记录的id
-     * @return 是否存在这条记录
+     * @return 是否存在这条记录 boolean
      */
     public static boolean isRecordExists(String tableName, String primaryIDField, String id) {
         try (Connection connection = dataSource.getConnection()) {
@@ -290,7 +296,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          增加的量
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean increaseData(String tableName, String fieldName, String primaryIDField, String id, String value) {
         return increaseData(tableName, fieldName, primaryIDField, id, value, true, null);
@@ -306,7 +312,7 @@ public class DatabaseUtils {
      * @param value           增加的量
      * @param autoCommit      开关自动提交
      * @param otherStatements 其他需要处理的PreparedStatement
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean increaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
@@ -332,7 +338,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          增加的量
-     * @return 一条未执行的预处理statement
+     * @return 一条未执行的预处理statement prepared statement
      */
     public static PreparedStatement increaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
@@ -357,7 +363,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          减少的量
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean decreaseData(String tableName, String fieldName, String primaryIDField, String id, String value) {
         return decreaseData(tableName, fieldName, primaryIDField, id, value, true, null);
@@ -373,7 +379,7 @@ public class DatabaseUtils {
      * @param value           减少的量
      * @param autoCommit      开关自动提交
      * @param otherStatements 其他需要处理的PreparedStatement
-     * @return 成功/失败
+     * @return 成功 /失败
      */
     public static boolean decreaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
@@ -398,7 +404,7 @@ public class DatabaseUtils {
      * @param primaryIDField 唯一ID表头名称
      * @param id             ID
      * @param value          减少的量
-     * @return 一条未执行的预处理statement
+     * @return 一条未执行的预处理statement prepared statement
      */
     public static PreparedStatement decreaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);

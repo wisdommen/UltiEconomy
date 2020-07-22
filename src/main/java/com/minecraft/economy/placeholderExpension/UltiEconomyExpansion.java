@@ -5,6 +5,9 @@ import com.minecraft.economy.economyMain.UltiEconomyMain;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 
+/**
+ * UltiEconomy PlaceHolderAPI变量
+ */
 public class UltiEconomyExpansion extends PlaceholderExpansion {
     @Override
     public String getIdentifier() {

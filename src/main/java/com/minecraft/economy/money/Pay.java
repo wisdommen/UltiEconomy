@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * 玩家间付款
+ */
 public class Pay implements TabExecutor {
 
     @Override

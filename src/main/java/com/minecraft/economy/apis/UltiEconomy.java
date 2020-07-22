@@ -8,12 +8,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.PreparedStatement;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * UltiEconomyAPI 实现类
+ */
 public class UltiEconomy implements UltiEconomyAPI {
 
     @Override
@@ -58,6 +59,12 @@ public class UltiEconomy implements UltiEconomyAPI {
         }
     }
 
+    /**
+     * Gets number.
+     *
+     * @param str the str
+     * @return the number
+     */
     public static String getNumber(String str) {
         List<String> list = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".");
         String[] strings = str.split("");
