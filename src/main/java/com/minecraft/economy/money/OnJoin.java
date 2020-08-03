@@ -1,6 +1,7 @@
 package com.minecraft.economy.money;
 
 import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.beans.PlayerEcoData;
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.utils.DatabasePlayerTools;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -14,36 +15,38 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+//import static com.minecraft.economy.apis.UltiEconomy.playerDataMap;
+
 /**
  * 玩家入服
  */
-public class onJoin implements Listener {
+public class OnJoin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException {
         Player player = event.getPlayer();
         UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
+        int money = 1000;
         if (!UltiEconomyMain.isDatabaseEnabled) {
-            int money = 1000;
             if (UltiEconomyMain.getIsVaultInstalled()) {
                 money = 0;
             }
 
             File file = economy.getPlayerFile(player.getName());
-            YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
             if (!file.exists()) {
+                YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
                 config.set("money", money);
                 config.set("bank", 0);
                 config.save(file);
             }
-        } else {
-            if (!DatabasePlayerTools.isPlayerExist(player.getName())) {
-                Map<String, String> data = new HashMap<>();
-                data.put("Name", player.getName());
-                data.put("Money",String.valueOf(1000));
-                data.put("Bank",String.valueOf(0));
-                DatabasePlayerTools.insertPlayerData(data);
-            }
         }
+        if (!DatabasePlayerTools.isPlayerExist(player.getName())) {
+            Map<String, String> data = new HashMap<>();
+            data.put("Name", player.getName());
+            data.put("Money", String.valueOf(1000));
+            data.put("Bank", String.valueOf(0));
+            DatabasePlayerTools.insertPlayerData(data);
+        }
+        //playerDataMap.put(player.getName(), new PlayerEcoData(player));
     }
 }

@@ -2,14 +2,14 @@ package com.minecraft.economy.economyMain;
 
 import com.minecraft.economy.CMDs.TransferData;
 import com.minecraft.economy.apis.UltiEconomy;
-import com.minecraft.economy.bank.bank;
-import com.minecraft.economy.bank.ck;
-import com.minecraft.economy.bank.qk;
-import com.minecraft.economy.CMDs.Givemoney;
+import com.minecraft.economy.bank.Bank;
+import com.minecraft.economy.bank.Deposit;
+import com.minecraft.economy.bank.Withdraw;
+import com.minecraft.economy.CMDs.GiveMoney;
 import com.minecraft.economy.money.Pay;
 import com.minecraft.economy.interest.Interest;
 import com.minecraft.economy.money.Money;
-import com.minecraft.economy.money.onJoin;
+import com.minecraft.economy.money.OnJoin;
 import com.minecraft.economy.placeholderExpension.UltiEconomyExpansion;
 import com.minecraft.economy.utils.DatabaseUtils;
 import com.minecraft.economy.versionChecker.ConfigFileCheck;
@@ -36,7 +36,7 @@ public class UltiEconomyMain extends JavaPlugin {
     private static Boolean isVaultInstalled;
     public static boolean isDatabaseEnabled;
 
-    private static UltiEconomy ultiEconomy = new UltiEconomy();
+    private static final UltiEconomy ultiEconomy = new UltiEconomy();
 
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
@@ -116,12 +116,12 @@ public class UltiEconomyMain extends JavaPlugin {
             getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "已开启利息！");
         }
         //新玩家入服检测
-        getServer().getPluginManager().registerEvents(new onJoin(), this);
+        getServer().getPluginManager().registerEvents(new OnJoin(), this);
         //注册命令
-        Objects.requireNonNull(this.getCommand("qk")).setExecutor(new qk());
-        Objects.requireNonNull(this.getCommand("ck")).setExecutor(new ck());
-        Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new Givemoney());
-        Objects.requireNonNull(this.getCommand("bank")).setExecutor(new bank());
+        Objects.requireNonNull(this.getCommand("qk")).setExecutor(new Withdraw());
+        Objects.requireNonNull(this.getCommand("ck")).setExecutor(new Deposit());
+        Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new GiveMoney());
+        Objects.requireNonNull(this.getCommand("bank")).setExecutor(new Bank());
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
         Objects.requireNonNull(this.getCommand("pay")).setExecutor(new Pay());
         Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());

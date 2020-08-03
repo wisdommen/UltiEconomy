@@ -41,7 +41,7 @@ public class MoveData {
             if (file.isFile()) {
                 YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
                 String player_name = file.getName().replace(".yml", "");
-                System.out.println("传输"+player_name+"的数据中...");
+                System.out.println(String.format("传输%s的数据中...", player_name));
                 int money, bank;
                 if (file.length()!=0) {
                     money = config.getInt("money");

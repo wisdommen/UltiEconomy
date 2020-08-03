@@ -5,17 +5,25 @@ import com.minecraft.economy.utils.DatabasePlayerTools;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * UltiEconomyAPI 实现类
  */
 public class UltiEconomy implements UltiEconomyAPI {
+
+//    public static Map<String, PlayerEcoData> playerDataMap = new HashMap<>();
+//
+//    static {
+//        for (Player player : Bukkit.getOnlinePlayers()) {
+//            PlayerEcoData playerEcoData = new PlayerEcoData(player);
+//            playerDataMap.put(player.getName(), playerEcoData);
+//        }
+//    }
 
     @Override
     public File getPlayerFile(String player_name) {
@@ -65,7 +73,7 @@ public class UltiEconomy implements UltiEconomyAPI {
      * @param str the str
      * @return the number
      */
-    public static String getNumber(String str) {
+    public static String getNumber(@NotNull String str) {
         List<String> list = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".");
         String[] strings = str.split("");
         String result = "";
@@ -190,13 +198,11 @@ public class UltiEconomy implements UltiEconomyAPI {
             assert amount >= 0;
 
             if (!UltiEconomyMain.isDatabaseEnabled) {
-                if (playerFileExists(player_name)) {
-                    if (checkBank(player_name) >= amount) {
-                        YamlConfiguration config = loadConfig(getPlayerFile(player_name));
-                        config.set("bank", checkBank(player_name) - amount);
-                        config.save(getPlayerFile(player_name));
-                        return true;
-                    }
+                if (playerFileExists(player_name) && checkBank(player_name) >= amount) {
+                    YamlConfiguration config = loadConfig(getPlayerFile(player_name));
+                    config.set("bank", checkBank(player_name) - amount);
+                    config.save(getPlayerFile(player_name));
+                    return true;
                 }
             } else {
                 if (DatabasePlayerTools.isPlayerExist(player_name)) {
@@ -216,23 +222,24 @@ public class UltiEconomy implements UltiEconomyAPI {
         try {
             assert amount >= 0;
             if (!UltiEconomyMain.isDatabaseEnabled) {
-                if (playerFileExists(payer) && playerFileExists(payee)) {
-                    if (checkMoney(payer) >= amount) {
-                        YamlConfiguration payer_config = loadConfig(getPlayerFile(payer));
-                        payer_config.set("money", checkBank(payer) - amount);
-                        YamlConfiguration payee_config = loadConfig(getPlayerFile(payee));
-                        payee_config.set("money", checkBank(payee) + amount);
-                        try {
-                            payer_config.save(getPlayerFile(payer));
-                            payee_config.save(getPlayerFile(payee));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        return true;
+                if (playerFileExists(payer) && playerFileExists(payee) && checkMoney(payer) >= amount) {
+                    YamlConfiguration payer_config = loadConfig(getPlayerFile(payer));
+                    payer_config.set("money", checkMoney(payer) - amount);
+                    YamlConfiguration payee_config = loadConfig(getPlayerFile(payee));
+                    payee_config.set("money", checkMoney(payee) + amount);
+                    try {
+                        payer_config.save(getPlayerFile(payer));
+                        payee_config.save(getPlayerFile(payee));
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+                    return true;
                 }
             } else {
-                return DatabasePlayerTools.increasePlayerData("Money", payee, amount) && DatabasePlayerTools.decreasePlayerData("Money", payer, amount);
+                List<UUID> others = new ArrayList<>();
+                UUID payeeUUID = DatabasePlayerTools.increasePlayerDataStandby("Money", payee, amount);
+                others.add(payeeUUID);
+                return DatabasePlayerTools.decreasePlayerData("Money", payer, amount, others);
             }
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
@@ -244,7 +251,14 @@ public class UltiEconomy implements UltiEconomyAPI {
     public Boolean transferMoneyToBank(String player_name, Integer amount) {
         try {
             assert amount >= 0;
-            return takeFrom(player_name, amount) && addToBank(player_name, amount);
+            if (!UltiEconomyMain.isDatabaseEnabled) {
+                return takeFrom(player_name, amount) && addToBank(player_name, amount);
+            }else {
+                List<UUID> others = new ArrayList<>();
+                UUID uuid = DatabasePlayerTools.increasePlayerDataStandby("Bank", player_name, amount);
+                others.add(uuid);
+                return DatabasePlayerTools.decreasePlayerData("Money", player_name, amount, others);
+            }
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
         }
@@ -255,7 +269,14 @@ public class UltiEconomy implements UltiEconomyAPI {
     public Boolean transferBankToMoney(String player_name, Integer amount) {
         try {
             assert amount >= 0;
-            return  takeFromBank(player_name, amount) && addTo(player_name, amount);
+            if (!UltiEconomyMain.isDatabaseEnabled) {
+                return takeFromBank(player_name, amount) && addTo(player_name, amount);
+            }else {
+                List<UUID> others = new ArrayList<>();
+                UUID uuid = DatabasePlayerTools.decreasePlayerDataStandby("Bank", player_name, amount);
+                others.add(uuid);
+                return DatabasePlayerTools.increasePlayerData("Money", player_name, amount, others);
+            }
         } catch (AssertionError e) {
             System.out.println("数额异常:" + e);
         }

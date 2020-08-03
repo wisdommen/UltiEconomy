@@ -1,10 +1,10 @@
 package com.minecraft.economy.utils;
 
-import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.Random;
@@ -19,7 +19,7 @@ public class Utils {
      *
      * @return the file
      */
-    public static File getConfigFile(){
+    public static @NotNull File getConfigFile(){
         return new File(UltiEconomyMain.getInstance().getDataFolder(), "config.yml");
     }
 
@@ -29,7 +29,7 @@ public class Utils {
      * @param file the file
      * @return the yaml configuration
      */
-    public static YamlConfiguration getConfig(File file){
+    public static @NotNull YamlConfiguration getConfig(File file){
         return YamlConfiguration.loadConfiguration(file);
     }
 
@@ -39,7 +39,7 @@ public class Utils {
      * @param player the player
      * @return the integer
      */
-    public static Integer checkOnlineTime(Player player){
+    public static @NotNull Integer checkOnlineTime(@NotNull Player player){
         return getConfig(new File(UltiEconomyMain.getInstance().getDataFolder()+"/playerData", player.getName()+".yml")).getInt("online_time");
     }
 
@@ -65,7 +65,7 @@ public class Utils {
      * @param range the range
      * @return the integer
      */
-    public static Integer getRandomNumber(int range){
+    public static @NotNull Integer getRandomNumber(int range){
         final long l = System.currentTimeMillis();
         final int i = (int) (l % 100);
         Random random = new Random(i);
@@ -77,7 +77,7 @@ public class Utils {
      *
      * @return the file configuration
      */
-    public static FileConfiguration getEconomyConfig(){
+    public static @NotNull FileConfiguration getEconomyConfig(){
         return UltiEconomyMain.getInstance().getConfig();
     }
 }

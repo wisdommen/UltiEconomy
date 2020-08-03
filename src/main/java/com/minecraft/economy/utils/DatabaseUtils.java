@@ -2,15 +2,15 @@ package com.minecraft.economy.utils;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.minecraft.economy.utils.Utils.getEconomyConfig;
 
@@ -24,6 +24,9 @@ public class DatabaseUtils {
     private static final String username = getEconomyConfig().getString("username");
     private static final String password = getEconomyConfig().getString("password");
     private static final String database = getEconomyConfig().getString("database");
+
+    private static Map<UUID, PreparedStatement> standbyStatements = new HashMap<>();
+    private static Map<UUID, Connection> standbyConnections = new HashMap<>();
 
     private static final DataSource dataSource;
 
@@ -102,6 +105,7 @@ public class DatabaseUtils {
      * @param fieldName      列名称
      * @return 获取的数据 ，若未找到数据则返回null
      */
+    @Nullable
     public static String getData(String primaryIDField, String id, String tableName, String fieldName) {
         try (Connection connection = dataSource.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement("select " + fieldName + " from " + tableName + " where " + primaryIDField + "=?")) {
@@ -126,7 +130,7 @@ public class DatabaseUtils {
      * @param fieldName 需要获取的列
      * @return 含有数据的列表 list
      */
-    public static List<String> getKeys(String tableName, String fieldName){
+    public static @NotNull List<String> getKeys(String tableName, String fieldName){
         List<String> keys = new ArrayList<>();
         try (Connection connection = dataSource.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement("select " + fieldName + " from " + tableName)) {
@@ -161,7 +165,7 @@ public class DatabaseUtils {
      * @param autoCommit 开关自动提交机制
      * @return 是否成功 boolean
      */
-    public static boolean insertData(String tableName, Map<String, String> dataMap, boolean autoCommit) {
+    public static boolean insertData(String tableName, @NotNull Map<String, String> dataMap, boolean autoCommit) {
         try (Connection connection = dataSource.getConnection()) {
             connection.setAutoCommit(autoCommit);
             String[] keys = dataMap.keySet().toArray(new String[0]);
@@ -207,10 +211,10 @@ public class DatabaseUtils {
      * @param id              记录id
      * @param value           更新值
      * @param autoCommit      自动提交
-     * @param otherStatements 其他需要执行的SQL语句
+     * @param otherStatements 其他需要执行的SQL语句的UUID
      * @return 是否成功 boolean
      */
-    public static boolean updateData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
+    public static boolean updateData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<UUID> otherStatements) {
         try (Connection connection = dataSource.getConnection()) {
             connection.setAutoCommit(autoCommit);
             try (PreparedStatement ps = connection.prepareStatement("update " + tableName + " set " + fieldName + "=? " + " where " + primaryIDField + "=?")) {
@@ -218,9 +222,15 @@ public class DatabaseUtils {
                 ps.setString(2, id);
                 int a = ps.executeUpdate();
                 if (otherStatements != null) {
-                    for (PreparedStatement each : otherStatements) {
-                        if (each != null) {
-                            each.executeUpdate();
+                    for (UUID each : otherStatements) {
+                        PreparedStatement otherPreparedStatement = standbyStatements.get(each);
+                        Connection otherConnection = standbyConnections.get(each);
+                        if (otherPreparedStatement != null) {
+                            otherPreparedStatement.executeUpdate();
+                            otherPreparedStatement.close();
+                        }
+                        if (otherConnection != null) {
+                            otherConnection.close();
                         }
                     }
                 }
@@ -248,19 +258,20 @@ public class DatabaseUtils {
      * @param primaryIDField 表唯一ID
      * @param id             记录id
      * @param value          更新值
-     * @return 预处理statement prepared statement
+     * @return 预处理statement prepared statement的UUID
      */
-    public static PreparedStatement updateDataWait(String tableName, String fieldName, String primaryIDField, String id, String value) {
-        try (Connection connection = dataSource.getConnection()) {
+    public static @Nullable UUID updateDataWait(String tableName, String fieldName, String primaryIDField, String id, String value) {
+        try {
+            Connection connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            try (PreparedStatement ps = connection.prepareStatement("update " + tableName + " set " + fieldName + "=? " + " where " + primaryIDField + "=?")) {
-                ps.setString(1, value);
-                ps.setString(2, id);
-                return ps;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } catch (SQLException e) {
+            PreparedStatement ps = connection.prepareStatement("update " + tableName + " set " + fieldName + "=? " + " where " + primaryIDField + "=?");
+            ps.setString(1, value);
+            ps.setString(2, id);
+            UUID uuid = UUID.randomUUID();
+            standbyConnections.put(uuid, connection);
+            standbyStatements.put(uuid, ps);
+            return uuid;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -311,10 +322,10 @@ public class DatabaseUtils {
      * @param id              ID
      * @param value           增加的量
      * @param autoCommit      开关自动提交
-     * @param otherStatements 其他需要处理的PreparedStatement
+     * @param otherStatements 其他需要处理的PreparedStatement的UUID
      * @return 成功 /失败
      */
-    public static boolean increaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
+    public static boolean increaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<UUID> otherStatements) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
         try {
             assert dataStringBefore != null;
@@ -340,7 +351,7 @@ public class DatabaseUtils {
      * @param value          增加的量
      * @return 一条未执行的预处理statement prepared statement
      */
-    public static PreparedStatement increaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
+    public static @Nullable UUID increaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
         try {
             assert dataStringBefore != null;
@@ -378,10 +389,10 @@ public class DatabaseUtils {
      * @param id              ID
      * @param value           减少的量
      * @param autoCommit      开关自动提交
-     * @param otherStatements 其他需要处理的PreparedStatement
+     * @param otherStatements 其他需要处理的PreparedStatement的UUID
      * @return 成功 /失败
      */
-    public static boolean decreaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<PreparedStatement> otherStatements) {
+    public static boolean decreaseData(String tableName, String fieldName, String primaryIDField, String id, String value, boolean autoCommit, List<UUID> otherStatements) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
         try {
             assert dataStringBefore != null;
@@ -406,7 +417,7 @@ public class DatabaseUtils {
      * @param value          减少的量
      * @return 一条未执行的预处理statement prepared statement
      */
-    public static PreparedStatement decreaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
+    public static @Nullable UUID decreaseDataStandby(String tableName, String fieldName, String primaryIDField, String id, String value) {
         String dataStringBefore = getData(primaryIDField, id, tableName, fieldName);
         try {
             assert dataStringBefore != null;
@@ -427,7 +438,7 @@ public class DatabaseUtils {
      * @param fields 需要转换的fields
      * @return 一个MySQL语句
      */
-    private static String getFields(String[] fields) {
+    private static @NotNull String getFields(String @NotNull [] fields) {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for (String arg : fields) {
@@ -443,7 +454,7 @@ public class DatabaseUtils {
      * @param fields 需要转换的fields
      * @return 一个MySQL语句
      */
-    private static String insertFields(String[] fields) {
+    private static @NotNull String insertFields(String @NotNull [] fields) {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for (String arg : fields) {
@@ -459,7 +470,7 @@ public class DatabaseUtils {
      * @param values 需要转换的fields
      * @return 一个MySQL语句
      */
-    private static String insertValues(String[] values) {
+    private static @NotNull String insertValues(String @NotNull [] values) {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for (String arg : values) {

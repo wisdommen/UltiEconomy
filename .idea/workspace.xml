@@ -19,13 +19,41 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="7.22更新，版本2.0.1.5&#10;1.增加，更新了API文档">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_alpha.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_mac.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UltiEconomy_test.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace-CBG-5CG7392Y0F.xml" beforeDir="false" />
+    <list default="true" id="e5b9e997-c579-4749-b16e-a7251fe6228c" name="Default Changelist" comment="7.25更新，版本2.0.1.6&#10;1.删除了隐私信息，添加了.gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/AbstractClasses/AbstractConsoleCommandExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/AbstractClasses/AbstractPlayerCommandExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/AbstractClasses/AbstractTabExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/Deposit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/Withdraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/beans/PlayerEcoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_1_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_16_1_R0_1_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UltiEconomy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltiEconomy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/Givemoney.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/Givemoney.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/seizeMoney.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/CMDs/seizeMoney.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/bank.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/bank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/ck.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/ck.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/qk.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/bank/qk.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/com/minecraft/economy/money/onJoin.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/com/minecraft/economy/money/onJoin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/Givemoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/GiveMoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/TransferData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/TransferData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/seizeMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/CMDs/SeizeMoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/apis/UltiEconomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/ck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/bank/qk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/database/MoveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/database/MoveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/economyMain/UltiEconomyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/economyMain/UltiEconomyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/interest/Interest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/interest/Interest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Pay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/Pay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/onJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/money/OnJoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabasePlayerTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabasePlayerTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/DatabaseUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/ConfigFileCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/ConfigFileCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/VersionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minecraft/economy/versionChecker/VersionChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +84,16 @@
       </map>
     </option>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1aTwUo7E2FMlIDYRnZMuxwtkog3" />
   <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="新增" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -78,7 +113,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -93,6 +128,7 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -258,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595424824352</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="7.25更新，版本2.0.1.6&#10;1.删除了隐私信息，添加了.gitignore">
+      <created>1595661475636</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1595661475636</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,7 +340,8 @@
     <MESSAGE value="7.21更新，版本2.0.0&#10;1.发布了2.0.0正式版本&#10;2.重构了数据库工具&#10;3.重构了插件主体" />
     <MESSAGE value="7.21更新，版本2.0.1&#10;1.修复了版本检查报错的问题" />
     <MESSAGE value="7.22更新，版本2.0.1.5&#10;1.增加，更新了API文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="7.22更新，版本2.0.1.5&#10;1.增加，更新了API文档" />
+    <MESSAGE value="7.25更新，版本2.0.1.6&#10;1.删除了隐私信息，添加了.gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.25更新，版本2.0.1.6&#10;1.删除了隐私信息，添加了.gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="127" width="800" height="717" key="#Intentions" timestamp="1592090050158">
@@ -312,11 +356,12 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="456" y="234" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592054066679" />
-    <state x="755" y="193" key="#com.intellij.ide.util.MemberChooser" timestamp="1595302752674">
+    <state x="755" y="193" key="#com.intellij.ide.util.MemberChooser" timestamp="1596448033210">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="755" y="193" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1595302752674" />
+    <state x="755" y="193" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1596448033210" />
     <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592297086728" />
+    <state x="531" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1596429385729" />
     <state x="745" y="234" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1595251194268">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -331,6 +376,10 @@
     </state>
     <state x="660" y="209" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2048.1112@0.0.2048.1112" timestamp="1595424631933" />
     <state x="464" y="188" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592091748750" />
+    <state x="663" y="133" key="CommitChangelistDialog2" timestamp="1596459577194">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="663" y="133" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1596459577194" />
     <state x="98" y="98" width="1852" height="916" key="DiffContextDialog" timestamp="1595289571587">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -341,40 +390,40 @@
     </state>
     <state x="577" y="190" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593067862521" />
     <state x="615" y="203" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1594368261269" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1595499824168">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1596458664259">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1595499824168" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1596458664259" />
     <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1595499824168">
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1596458664259">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1595499824168" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1596458664259" />
     <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002990" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1595499824168">
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1596458664259">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1595499824168" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1596458664259" />
     <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002989" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1595499824168">
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1596458664259">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1595499824168" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1596458664259" />
     <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592117002991" />
-    <state x="208" y="43" key="SettingsEditor" timestamp="1595660810055">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="295" y="26" key="SettingsEditor" timestamp="1596436300082">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="277" y="24" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593310805476" />
-    <state x="295" y="26" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1595290050180" />
+    <state x="295" y="26" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1596436300081" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592226321751" />
     <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1595660810055" />
-    <state x="455" y="226" key="Vcs.Push.Dialog.v2" timestamp="1595424829342">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1595661481424">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="427" y="211" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593565589757" />
     <state x="455" y="226" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1595424829342" />
     <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592312322248" />
-    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593148512484" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1595661481424" />
     <state x="416" y="361" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592031278612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -388,6 +437,10 @@
     </state>
     <state x="722" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112@0.0.2048.1112" timestamp="1595424900479" />
     <state x="508" y="382" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592095642025" />
+    <state x="723" y="110" width="601" height="891" key="find.popup" timestamp="1596436477408">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="723" y="110" width="601" height="891" key="find.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1596436477408" />
     <state x="88" y="84" key="new project wizard" timestamp="1592031359697">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -396,9 +449,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="709" y="364" key="scopes/0.0.2048.1112@0.0.2048.1112" timestamp="1595423965770" />
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1595661273261">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="548" y="241" width="953" height="858" key="search.everywhere.popup" timestamp="1596436287684">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state x="548" y="241" width="953" height="858" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1596436287684" />
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-80.-1057.1920.1057@0.23.1440.877" timestamp="1592031324537" />
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1595661273261" />
   </component>

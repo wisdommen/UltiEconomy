@@ -1,8 +1,10 @@
 package com.minecraft.economy.utils;
 
-import java.sql.PreparedStatement;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * The type Database player tools.
@@ -40,7 +42,7 @@ public class DatabasePlayerTools {
      *
      * @return the list
      */
-    public static List<String> getKeys(){
+    public static @NotNull List<String> getKeys(){
         return DatabaseUtils.getKeys(table, primaryID);
     }
 
@@ -74,7 +76,7 @@ public class DatabasePlayerTools {
      * @param amount     the amount
      * @return the prepared statement
      */
-    public static PreparedStatement increasePlayerDataStandby(String field, String playerName, int amount){
+    public static UUID increasePlayerDataStandby(String field, String playerName, int amount){
         return DatabaseUtils.increaseDataStandby(table, field, primaryID, playerName, String.valueOf(amount));
     }
 
@@ -87,7 +89,7 @@ public class DatabasePlayerTools {
      * @param statementList the statement list
      * @return the boolean
      */
-    public static boolean increasePlayerData(String field, String playerName, int amount, List<PreparedStatement> statementList){
+    public static boolean increasePlayerData(String field, String playerName, int amount, List<UUID> statementList){
         return DatabaseUtils.increaseData(table, field, primaryID, playerName, String.valueOf(amount), false, statementList);
     }
 
@@ -111,7 +113,7 @@ public class DatabasePlayerTools {
      * @param amount     the amount
      * @return the prepared statement
      */
-    public static PreparedStatement decreasePlayerDataStandby(String field, String playerName, int amount){
+    public static UUID decreasePlayerDataStandby(String field, String playerName, int amount){
         return DatabaseUtils.decreaseDataStandby(table, field, primaryID, playerName, String.valueOf(amount));
     }
 
@@ -124,7 +126,7 @@ public class DatabasePlayerTools {
      * @param statementList the statement list
      * @return the boolean
      */
-    public static boolean decreasePlayerData(String field, String playerName, int amount, List<PreparedStatement> statementList){
+    public static boolean decreasePlayerData(String field, String playerName, int amount, List<UUID> statementList){
         return DatabaseUtils.decreaseData(table, field, primaryID, playerName, String.valueOf(amount), false, statementList);
     }
 
