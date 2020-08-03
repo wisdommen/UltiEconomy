@@ -22,12 +22,12 @@
 
 接着最好在主类里新建一个setup方法，用来检测依赖，虽然可以在plugin.yml中添加依赖，但是如果能弹出自定义的提醒不是更好吗？
 
-    private Boolean setupEconomy(){
-        if (getServer().getPluginManager().getPlugin("Economy") == null){
-            return false;
-        }else {
+    private Boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("UltiEconomy") != null) {
             economy = new UltiEconomy();
             return true;
+        } else {
+            return false;
         }
     }
     
@@ -74,12 +74,12 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
             return economy;
         }
 
-        private Boolean setupEconomy(){
-            if (getServer().getPluginManager().getPlugin("Economy") == null){
-                return false;
-            }else {
+        private Boolean setupEconomy() {
+            if (getServer().getPluginManager().getPlugin("UltiEconomy") != null) {
                 economy = new UltiEconomy();
                 return true;
+            } else {
+                return false;
             }
         }
         
