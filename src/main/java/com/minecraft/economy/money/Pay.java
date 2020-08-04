@@ -36,7 +36,7 @@ public class Pay extends AbstractTabExecutor {
         }
 
         if (!economy.transferMoney(player.getName(), strings[0], amount)) {
-            player.sendMessage("收款人未开户或不存在！");
+            player.sendMessage(ChatColor.RED+"转账失败！");
             return true;
         }
         player.sendMessage(String.format(ChatColor.GOLD + "你已转账%s枚金币给%s！", strings[1], strings[0]));

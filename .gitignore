@@ -75,3 +75,13 @@ fabric.properties
 .DS_Store
 src/test/
 target/
+.idea/.name
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/intellij-javadocs-4.0.1.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/smartfox_info.xml
+.idea/vcs.xml
