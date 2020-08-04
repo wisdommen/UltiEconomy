@@ -26,9 +26,8 @@
         if (getServer().getPluginManager().getPlugin("UltiEconomy") != null) {
             economy = new UltiEconomy();
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     
 再接着就需要在:    onEnable() 里添加代码。
@@ -78,9 +77,8 @@ OK，一切初始化设置完成，接下来你只要在你的其他类里调用
             if (getServer().getPluginManager().getPlugin("UltiEconomy") != null) {
                 economy = new UltiEconomy();
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }
         
         @Override
