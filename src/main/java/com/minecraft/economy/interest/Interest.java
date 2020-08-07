@@ -25,7 +25,7 @@ public class Interest extends BukkitRunnable {
         double interestRate = UltiEconomyMain.getInstance().getConfig().getDouble("interestRate");
 
         for (File value : array) {
-            if (value.isFile()) {
+            if (!value.isFile()) {
                 return;
             }
             String playerName = value.getName().replace(".yml", "");

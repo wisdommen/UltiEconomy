@@ -22,14 +22,14 @@ public class MoveData {
      *
      * @return the boolean
      */
-    public static boolean MoveDataFromLocal(){
+    public static boolean MoveDataFromLocal() {
         String path = UltiEconomyMain.getInstance().getDataFolder() + "/playerData";
         File files = new File(path);
         File[] array = files.listFiles();
 
-        if(DatabaseUtils.createTable("player_economy_data", new String[]{"Name", "Money", "Bank"})){
+        if (DatabaseUtils.createTable("player_economy_data", new String[]{"Name", "Money", "Bank"})) {
             UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "经济插件接入数据库成功！");
-        }else {
+        } else {
             UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "经济插件接入数据库失败！");
             UltiEconomyMain.getInstance().getConfig().set("enableDataBase", false);
             UltiEconomyMain.getInstance().saveConfig();
@@ -37,32 +37,32 @@ public class MoveData {
             return false;
         }
 
-        for (File file : array){
-            if (file.isFile()) {
-                YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
-                String player_name = file.getName().replace(".yml", "");
-                System.out.println(String.format("传输%s的数据中...", player_name));
-                int money, bank;
-                if (file.length()!=0) {
-                    money = config.getInt("money");
-                    bank = config.getInt("bank");
-                }else {
-                    money = 0;
-                    bank = 0;
-                }
-
-                if (DatabasePlayerTools.isPlayerExist(player_name)) {
-                    DatabasePlayerTools.updatePlayerData(player_name, "Money", String.valueOf(money));
-                    DatabasePlayerTools.updatePlayerData(player_name, "Bank", String.valueOf(money));
-                } else {
-                    Map<String, String> data = new HashMap<>();
-                    data.put("Name",player_name);
-                    data.put("Money",String.valueOf(money));
-                    data.put("Bank",String.valueOf(bank));
-                    DatabasePlayerTools.insertPlayerData(data);
-                }
+        for (File file : array) {
+            if (!file.isFile()) {
+                continue;
+            }
+            YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
+            String player_name = file.getName().replace(".yml", "");
+            System.out.println(String.format("传输%s的数据中...", player_name));
+            int money, bank;
+            if (file.length() != 0) {
+                money = config.getInt("money");
+                bank = config.getInt("bank");
+            } else {
+                money = 0;
+                bank = 0;
             }
 
+            if (DatabasePlayerTools.isPlayerExist(player_name)) {
+                DatabasePlayerTools.updatePlayerData(player_name, "Money", String.valueOf(money));
+                DatabasePlayerTools.updatePlayerData(player_name, "Bank", String.valueOf(money));
+            } else {
+                Map<String, String> data = new HashMap<>();
+                data.put("Name", player_name);
+                data.put("Money", String.valueOf(money));
+                data.put("Bank", String.valueOf(bank));
+                DatabasePlayerTools.insertPlayerData(data);
+            }
         }
         return true;
     }
@@ -80,8 +80,8 @@ public class MoveData {
         UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
         assert array != null;
 
-        for (String player_name : DatabasePlayerTools.getKeys()){
-            File file = new File(path, player_name+".yml");
+        for (String player_name : DatabasePlayerTools.getKeys()) {
+            File file = new File(path, player_name + ".yml");
             YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
             int money = economy.checkMoney(player_name);
