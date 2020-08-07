@@ -30,7 +30,7 @@ public class Interest extends BukkitRunnable {
             }
             String playerName = value.getName().replace(".yml", "");
             int savings = economy.checkBank(playerName);
-            if (savings >= 10000) {
+            if (savings < 10000) {
                 return;
             }
             double interests = savings * (interestRate / 10000);
