@@ -21,7 +21,7 @@ public class Pay extends AbstractTabExecutor {
 
     @Override
     public boolean onPlayerCommand(@NotNull Command command, String[] strings, @NotNull Player player, @NotNull UltiEconomy economy) {
-        if (!"pay".equalsIgnoreCase(command.getName()) && strings.length != 2) {
+        if (!"ultipay".equalsIgnoreCase(command.getName()) && strings.length != 2) {
             player.sendMessage(ChatColor.RED + "[警告]请输入正确的指令！");
             player.sendMessage(ChatColor.RED + "用法：/pay 玩家名 数字");
             return true;

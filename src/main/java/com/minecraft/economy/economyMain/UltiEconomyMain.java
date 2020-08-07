@@ -123,7 +123,7 @@ public class UltiEconomyMain extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new GiveMoney());
         Objects.requireNonNull(this.getCommand("bank")).setExecutor(new Bank());
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
-        Objects.requireNonNull(this.getCommand("pay")).setExecutor(new Pay());
+        Objects.requireNonNull(this.getCommand("ultipay")).setExecutor(new Pay());
         Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());
 
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
