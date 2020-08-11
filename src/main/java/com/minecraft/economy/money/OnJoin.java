@@ -39,6 +39,7 @@ public class OnJoin implements Listener {
                 config.set("bank", 0);
                 config.save(file);
             }
+            return;
         }
         if (!DatabasePlayerTools.isPlayerExist(player.getName())) {
             Map<String, String> data = new HashMap<>();
