@@ -238,17 +238,18 @@ public class UltiEconomy implements UltiEconomyAPI {
             if (!(playerFileExists(payer) && playerFileExists(payee) && checkMoney(payer) >= amount)) {
                 return false;
             }
-            YamlConfiguration payer_config = loadConfig(getPlayerFile(payer));
-            payer_config.set("money", checkMoney(payer) - amount);
-            YamlConfiguration payee_config = loadConfig(getPlayerFile(payee));
-            payee_config.set("money", checkMoney(payee) + amount);
-            try {
-                payer_config.save(getPlayerFile(payer));
-                payee_config.save(getPlayerFile(payee));
-                return true;
-            } catch (Exception e) {
-                return false;
-            }
+            return takeFrom(payer, amount) && addTo(payee, amount);
+//            YamlConfiguration payer_config = loadConfig(getPlayerFile(payer));
+//            payer_config.set("money", checkMoney(payer) - amount);
+//            YamlConfiguration payee_config = loadConfig(getPlayerFile(payee));
+//            payee_config.set("money", checkMoney(payee) + amount);
+//            try {
+//                payer_config.save(getPlayerFile(payer));
+//                payee_config.save(getPlayerFile(payee));
+//                return true;
+//            } catch (Exception e) {
+//                return false;
+//            }
         } else {
             List<UUID> others = new ArrayList<>();
             UUID payeeUUID = DatabasePlayerTools.increasePlayerDataStandby("Money", payee, amount);
