@@ -13,6 +13,7 @@ import com.minecraft.economy.money.OnJoin;
 import com.minecraft.economy.placeholderExpension.UltiEconomyExpansion;
 import com.minecraft.economy.utils.DatabaseUtils;
 import com.minecraft.economy.versionChecker.ConfigFileCheck;
+import com.minecraft.economy.versionChecker.Metrics;
 import com.minecraft.economy.versionChecker.VersionChecker;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
@@ -80,6 +81,7 @@ public class UltiEconomyMain extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        startBStates();
         File folder = new File(String.valueOf(getDataFolder()));
         File playerDataFolder = new File(getDataFolder() + "/playerData");
         File config_file = new File(getDataFolder(), "config.yml");
@@ -153,4 +155,10 @@ public class UltiEconomyMain extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已卸载！");
     }
 
+    private static void startBStates(){
+        // All you have to do is adding the following two lines in your onEnable method.
+        // You can find the plugin ids of your plugins on the page https://bstats.org/what-is-my-plugin-id
+        int pluginId = 8690; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(UltiEconomyMain.getInstance(), pluginId);
+    }
 }

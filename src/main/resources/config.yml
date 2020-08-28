@@ -21,3 +21,6 @@ interestTime: 1800
 
 '注释9请勿修改': '是否开启自动版本检查'
 enable_version_check: true
+
+'注释10请勿修改': '是否开启自动版本升级(必须同时开启自动版本检查)'
+enable_auto_update: false

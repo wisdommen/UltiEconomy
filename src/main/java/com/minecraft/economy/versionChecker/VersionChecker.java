@@ -2,26 +2,32 @@ package com.minecraft.economy.versionChecker;
 
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.ChatColor;
+import org.bukkit.scheduler.BukkitRunnable;
 
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.List;
+
+import static com.minecraft.economy.utils.Utils.getFiles;
 
 /**
  * The type Version checker.
  */
 public class VersionChecker {
+    private static String version;
+    private static String current_version;
 
     /**
      * Sets thread.
      */
     public static void setupThread() {
-        Thread checkVersionThread = new Thread() {
+        new BukkitRunnable() {
+            @Override
             public void run() {
                 try {
                     //连接
@@ -44,26 +50,23 @@ public class VersionChecker {
                             boolean isOutDate = false;
                             String target = br.readLine();
                             //获取版本
-                            String version = target.split("version: ")[1].split("<")[0];
-                            String current_version = UltiEconomyMain.getInstance().getDescription().getVersion();
-                            List<String> current_version_list = Arrays.asList(current_version.split("\\."));
-                            List<String> online_version_list = Arrays.asList(version.split("\\."));
+                            version = target.split("version: ")[1].split("<")[0];
+                            current_version = UltiEconomyMain.getInstance().getDescription().getVersion();
+                            int currentVersion = getVersion(current_version);
+                            int onlineVersion = getVersion(version);
                             UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 正在检查更新...");
-                            for (int i = 0; i < 3; i++) {
-                                String a = current_version_list.get(i);
-                                String b = online_version_list.get(i);
-                                if (Integer.parseInt(a) < Integer.parseInt(b)) {
-                                    if (i <= 1) {
-                                        UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + "[UltiEconomy] 经济插件有 重要 更新，请到mcbbs上下载最新版本！");
-                                    } else {
-                                        UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + "[UltiEconomy] 经济插件有更新，请到mcbbs上下载最新版本！");
-                                    }
-                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 下载地址：https://www.mcbbs.net/thread-1060351-1-1.html");
-                                    isOutDate = true;
-                                    break;
+                            if (currentVersion < onlineVersion) {
+                                isOutDate = true;
+                                UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + String.format("[UltiEconomy] 经济插件最新版为%s，你的版本是%s！请下载最新版本！", version, current_version));
+                                if (UltiEconomyMain.getInstance().getConfig().getBoolean("enable_auto_update")) {
+                                    downloadNewVersion();
+                                } else {
+                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + "[UltiEconomy] 下载地址：https://www.mcbbs.net/thread-1060351-1-1.html");
+                                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.RED + "[UltiEconomy] 你知道吗？现在UltiEconomy可以自动更新啦！在配置文件中打开自动更新，更新再也不用麻烦！");
                                 }
                             }
                             if (!isOutDate) {
+                                deleteOldVersion();
                                 UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy]太棒了！你的插件是最新的！保持最新的版本可以为你带来最好的体验！");
                             }
                             break;
@@ -75,14 +78,57 @@ public class VersionChecker {
                     streamReader.close();
                     input.close();
                     connection.disconnect();
-                    this.interrupt();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.interrupt();
                 }
             }
-        };
-        checkVersionThread.start();
+        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
     }
 
+    private static void downloadNewVersion() {
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[UltiEconomy] 正在下载更新...");
+                if (download()){
+                    UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[UltiEconomy] 下载完成, 重启服务器以应用更新！");
+                    this.cancel();
+                    return;
+                }
+                UltiEconomyMain.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.GREEN + String.format("[UltiEconomy] 下载失败，请前往 %s 手动下载！", "https://www.mcbbs.net/thread-1060351-1-1.html"));
+            }
+
+        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
+    }
+
+    private static boolean download (){
+        try {
+            URL url = new URL("https://raw.githubusercontent.com/wisdommen/wisdommen.github.io/master/collections/UltiEconomy/UltiEconomy-" + version + ".jar");
+            ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+            FileOutputStream fos = new FileOutputStream(UltiEconomyMain.getInstance().getDataFolder().getPath().replace("\\UltiEconomy", "") + "\\UltiEconomy-" + version + ".jar");
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            fos.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private static void deleteOldVersion () {
+        List<File> files = getFiles(UltiEconomyMain.getInstance().getDataFolder().getPath().replace("\\UltiEconomy", ""));
+        for (File file : files) {
+            if (file.getName().contains("UltiEconomy-") && !file.getName().equals("UltiEconomy-" + version + ".jar")) {
+                file.delete();
+            }
+        }
+    }
+
+    private static int getVersion(String version) {
+        while (version.contains(".")) {
+            version = version.replace(".", "");
+        }
+        return Integer.parseInt(version);
+    }
 }

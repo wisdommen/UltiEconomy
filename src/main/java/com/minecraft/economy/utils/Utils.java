@@ -5,8 +5,12 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -79,5 +83,17 @@ public class Utils {
      */
     public static @NotNull FileConfiguration getEconomyConfig(){
         return UltiEconomyMain.getInstance().getConfig();
+    }
+
+    /**
+     * @param path folder path
+     * @return list of files
+     */
+    public static @Nullable List<File> getFiles(String path) {
+        File folder = new File(path);
+        if (folder.listFiles() != null) {
+            return Arrays.asList(Objects.requireNonNull(folder.listFiles()));
+        }
+        return null;
     }
 }
