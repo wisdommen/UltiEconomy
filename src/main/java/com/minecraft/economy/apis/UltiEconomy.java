@@ -17,15 +17,6 @@ import java.util.*;
  */
 public class UltiEconomy implements UltiEconomyAPI {
 
-//    public static Map<String, PlayerEcoData> playerDataMap = new HashMap<>();
-//
-//    static {
-//        for (Player player : Bukkit.getOnlinePlayers()) {
-//            PlayerEcoData playerEcoData = new PlayerEcoData(player);
-//            playerDataMap.put(player.getName(), playerEcoData);
-//        }
-//    }
-
     @Override
     public File getPlayerFile(String player_name) {
         return new File(UltiEconomyMain.getInstance().getDataFolder() + "/playerData", player_name + ".yml");
@@ -43,7 +34,6 @@ public class UltiEconomy implements UltiEconomyAPI {
 
     @Override
     public Integer checkMoney(String player_name) {
-        if (!UltiEconomyMain.getIsVaultInstalled()) {
             if (!UltiEconomyMain.isDatabaseEnabled) {
                 if (playerFileExists(player_name)) {
                     YamlConfiguration config = loadConfig(getPlayerFile(player_name));
@@ -55,17 +45,6 @@ public class UltiEconomy implements UltiEconomyAPI {
                 }
             }
             return -1;
-        } else {
-            if (Bukkit.getPlayer(player_name) != null) {
-                String money = getNumber(UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name))));
-                if (money.contains(".")) {
-                    return Math.round(Float.parseFloat(money));
-                }
-                return Integer.parseInt(money);
-            } else {
-                return -1;
-            }
-        }
     }
 
     /**
@@ -103,7 +82,6 @@ public class UltiEconomy implements UltiEconomyAPI {
 
     @Override
     public Boolean addTo(String player_name, Integer amount) {
-        if (!UltiEconomyMain.getIsVaultInstalled()) {
             try {
                 assert amount >= 0;
             } catch (AssertionError e) {
@@ -128,12 +106,6 @@ public class UltiEconomy implements UltiEconomyAPI {
                     return DatabasePlayerTools.increasePlayerData("Money", player_name, amount);
                 }
             }
-        } else {
-            if (Bukkit.getPlayer(player_name) != null) {
-                EconomyResponse r = UltiEconomyMain.getEcon().depositPlayer(Bukkit.getPlayer(player_name), amount);
-                return r.transactionSuccess();
-            }
-        }
         return false;
     }
 
@@ -166,10 +138,6 @@ public class UltiEconomy implements UltiEconomyAPI {
 
     @Override
     public Boolean takeFrom(String player_name, Integer amount) {
-        if (UltiEconomyMain.getIsVaultInstalled() && Bukkit.getPlayer(player_name) != null && UltiEconomyMain.getEcon().has(Bukkit.getOfflinePlayer(Objects.requireNonNull(Bukkit.getPlayer(player_name)).getUniqueId()), amount)) {
-            EconomyResponse r = UltiEconomyMain.getEcon().withdrawPlayer(Bukkit.getPlayer(player_name), amount);
-            return r.transactionSuccess();
-        }
         try {
             assert amount >= 0;
         } catch (AssertionError e) {
@@ -239,17 +207,6 @@ public class UltiEconomy implements UltiEconomyAPI {
                 return false;
             }
             return takeFrom(payer, amount) && addTo(payee, amount);
-//            YamlConfiguration payer_config = loadConfig(getPlayerFile(payer));
-//            payer_config.set("money", checkMoney(payer) - amount);
-//            YamlConfiguration payee_config = loadConfig(getPlayerFile(payee));
-//            payee_config.set("money", checkMoney(payee) + amount);
-//            try {
-//                payer_config.save(getPlayerFile(payer));
-//                payee_config.save(getPlayerFile(payee));
-//                return true;
-//            } catch (Exception e) {
-//                return false;
-//            }
         } else {
             List<UUID> others = new ArrayList<>();
             UUID payeeUUID = DatabasePlayerTools.increasePlayerDataStandby("Money", payee, amount);

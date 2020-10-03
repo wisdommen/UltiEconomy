@@ -1,6 +1,7 @@
 package com.minecraft.economy.economyMain;
 
 import com.minecraft.economy.CMDs.TransferData;
+import com.minecraft.economy.vault.EconomyImplementer;
 import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.bank.Bank;
 import com.minecraft.economy.bank.Deposit;
@@ -12,12 +13,12 @@ import com.minecraft.economy.money.Money;
 import com.minecraft.economy.money.OnJoin;
 import com.minecraft.economy.placeholderExpension.UltiEconomyExpansion;
 import com.minecraft.economy.utils.DatabaseUtils;
+import com.minecraft.economy.vault.VaultHook;
 import com.minecraft.economy.versionChecker.ConfigFileCheck;
 import com.minecraft.economy.versionChecker.Metrics;
 import com.minecraft.economy.versionChecker.VersionChecker;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -36,19 +37,13 @@ public class UltiEconomyMain extends JavaPlugin {
     private static Economy econ = null;
     private static Boolean isVaultInstalled;
     public static boolean isDatabaseEnabled;
+    private VaultHook vaultHook;
+    public EconomyImplementer economyImplementer;
 
     private static final UltiEconomy ultiEconomy = new UltiEconomy();
 
     private boolean setupEconomy() {
-        if (getServer().getPluginManager().getPlugin("Vault") == null) {
-            return false;
-        }
-        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
-        if (rsp == null) {
-            return false;
-        }
-        econ = rsp.getProvider();
-        return econ != null;
+        return getServer().getPluginManager().getPlugin("Vault") != null;
     }
 
     /**
@@ -80,7 +75,15 @@ public class UltiEconomyMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        if (!setupEconomy() ) {
+            getLogger().warning("[UltiEconomy] 未找到Vault前置插件，关闭中...");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
         plugin = this;
+        economyImplementer = new EconomyImplementer();
+        vaultHook = new VaultHook();
+        vaultHook.hook();
         startBStates();
         File folder = new File(String.valueOf(getDataFolder()));
         File playerDataFolder = new File(getDataFolder() + "/playerData");
@@ -152,6 +155,7 @@ public class UltiEconomyMain extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        vaultHook.unhook();
         getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "经济插件已卸载！");
     }
 

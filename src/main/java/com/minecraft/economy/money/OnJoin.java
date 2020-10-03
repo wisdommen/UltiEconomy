@@ -26,11 +26,8 @@ public class OnJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException {
         Player player = event.getPlayer();
         UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
-        int money = 1000;
+        int money = UltiEconomyMain.getInstance().getConfig().getInt("initial_money");
         if (!UltiEconomyMain.isDatabaseEnabled) {
-            if (UltiEconomyMain.getIsVaultInstalled()) {
-                money = 0;
-            }
 
             File file = economy.getPlayerFile(player.getName());
             if (!file.exists()) {
@@ -44,10 +41,9 @@ public class OnJoin implements Listener {
         if (!DatabasePlayerTools.isPlayerExist(player.getName())) {
             Map<String, String> data = new HashMap<>();
             data.put("Name", player.getName());
-            data.put("Money", String.valueOf(1000));
+            data.put("Money", String.valueOf(money));
             data.put("Bank", String.valueOf(0));
             DatabasePlayerTools.insertPlayerData(data);
         }
-        //playerDataMap.put(player.getName(), new PlayerEcoData(player));
     }
 }

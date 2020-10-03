@@ -25,7 +25,6 @@ public class PlayerEcoData {
     }
 
     private Integer checkMoney(String player_name) {
-        if (!UltiEconomyMain.getIsVaultInstalled()) {
             if (!UltiEconomyMain.isDatabaseEnabled) {
                 if (playerFileExists(player_name)) {
                     YamlConfiguration config = loadConfig(getPlayerFile(player_name));
@@ -37,17 +36,6 @@ public class PlayerEcoData {
                 }
             }
             return -1;
-        } else {
-            if (Bukkit.getPlayer(player_name) != null) {
-                String money = getNumber(UltiEconomyMain.getEcon().format(UltiEconomyMain.getEcon().getBalance(Bukkit.getPlayer(player_name))));
-                if (money.contains(".")) {
-                    return Math.round(Float.parseFloat(money));
-                }
-                return Integer.parseInt(money);
-            } else {
-                return -1;
-            }
-        }
     }
 
     private Integer checkBank(String player_name) {
