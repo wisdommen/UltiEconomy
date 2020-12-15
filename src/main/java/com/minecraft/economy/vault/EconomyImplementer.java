@@ -84,7 +84,7 @@ public class EconomyImplementer implements Economy {
         }
         if (!UltiEconomyMain.isDatabaseEnabled) {
             YamlConfiguration config = loadConfig(getPlayerFile(playerName));
-            return config.getInt("money");
+            return config.getDouble("money");
         } else {
             return Math.round(Float.parseFloat(DatabasePlayerTools.getPlayerData(playerName, "Money")));
         }
@@ -254,7 +254,7 @@ public class EconomyImplementer implements Economy {
         if (!UltiEconomyMain.isDatabaseEnabled) {
             if (hasAccount(name)) {
                 YamlConfiguration config = loadConfig(getPlayerFile(name));
-                return new EconomyResponse(0, config.getInt("bank"), EconomyResponse.ResponseType.SUCCESS, null);
+                return new EconomyResponse(0, config.getDouble("bank"), EconomyResponse.ResponseType.SUCCESS, null);
             }
         } else {
             if (DatabasePlayerTools.isPlayerExist(name)) {

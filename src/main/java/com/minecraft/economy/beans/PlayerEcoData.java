@@ -11,9 +11,9 @@ import java.io.File;
 public class PlayerEcoData {
 
     OfflinePlayer player;
-    Integer money;
-    Integer savings;
-    Integer points;
+    Double money;
+    Double savings;
+    Double points;
 
     public PlayerEcoData(@NotNull OfflinePlayer player) {
         this.player = player;
@@ -21,32 +21,32 @@ public class PlayerEcoData {
         this.savings = checkBank(player.getName());
     }
 
-    private Integer checkMoney(String player_name) {
+    private Double checkMoney(String player_name) {
             if (!UltiEconomyMain.isDatabaseEnabled) {
                 if (playerFileExists(player_name)) {
                     YamlConfiguration config = loadConfig(getPlayerFile(player_name));
-                    return config.getInt("money");
+                    return config.getDouble("money");
                 }
             } else {
                 if (DatabasePlayerTools.isPlayerExist(player_name)) {
-                    return Math.round(Float.parseFloat(DatabasePlayerTools.getPlayerData(player_name, "Money")));
+                    return Double.parseDouble(DatabasePlayerTools.getPlayerData(player_name, "Money"));
                 }
             }
-            return -1;
+            return -1.0;
     }
 
-    private Integer checkBank(String player_name) {
+    private Double checkBank(String player_name) {
         if (!UltiEconomyMain.isDatabaseEnabled) {
             if (playerFileExists(player_name)) {
                 YamlConfiguration config = loadConfig(getPlayerFile(player_name));
-                return config.getInt("bank");
+                return config.getDouble("bank");
             }
         } else {
             if (DatabasePlayerTools.isPlayerExist(player_name)) {
-                return Math.round(Float.parseFloat(DatabasePlayerTools.getPlayerData(player_name, "Bank")));
+                return Double.parseDouble(DatabasePlayerTools.getPlayerData(player_name, "Bank"));
             }
         }
-        return -1;
+        return -1.0;
     }
 
     private @NotNull Boolean playerFileExists(String player_name) {
@@ -61,27 +61,27 @@ public class PlayerEcoData {
         return new File(UltiEconomyMain.getInstance().getDataFolder() + "/playerData", player_name + ".yml");
     }
 
-    public Integer getMoney() {
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 
-    public Integer getSavings() {
+    public Double getSavings() {
         return savings;
     }
 
-    public void setSavings(Integer savings) {
+    public void setSavings(Double savings) {
         this.savings = savings;
     }
 
-    public Integer getPoints() {
+    public Double getPoints() {
         return points;
     }
 
-    public void setPoints(Integer points) {
+    public void setPoints(Double points) {
         this.points = points;
     }
 }
