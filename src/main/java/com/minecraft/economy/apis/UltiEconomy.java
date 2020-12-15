@@ -2,8 +2,6 @@ package com.minecraft.economy.apis;
 
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.utils.DatabasePlayerTools;
-import net.milkbowl.vault.economy.EconomyResponse;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
@@ -33,18 +31,18 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Integer checkMoney(String player_name) {
+    public Double checkMoney(String player_name) {
             if (!UltiEconomyMain.isDatabaseEnabled) {
                 if (playerFileExists(player_name)) {
                     YamlConfiguration config = loadConfig(getPlayerFile(player_name));
-                    return config.getInt("money");
+                    return config.getDouble("money");
                 }
             } else {
                 if (DatabasePlayerTools.isPlayerExist(player_name)) {
-                    return Math.round(Float.parseFloat(DatabasePlayerTools.getPlayerData(player_name, "Money")));
+                    return Double.parseDouble(DatabasePlayerTools.getPlayerData(player_name, "Money"));
                 }
             }
-            return -1;
+            return -1.0;
     }
 
     /**
@@ -66,22 +64,22 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Integer checkBank(String player_name) {
+    public Double checkBank(String player_name) {
         if (!UltiEconomyMain.isDatabaseEnabled) {
             if (playerFileExists(player_name)) {
                 YamlConfiguration config = loadConfig(getPlayerFile(player_name));
-                return config.getInt("bank");
+                return config.getDouble("bank");
             }
         } else {
             if (DatabasePlayerTools.isPlayerExist(player_name)) {
-                return Math.round(Float.parseFloat(DatabasePlayerTools.getPlayerData(player_name, "Bank")));
+                return Double.parseDouble(DatabasePlayerTools.getPlayerData(player_name, "Bank"));
             }
         }
-        return -1;
+        return -1.0;
     }
 
     @Override
-    public Boolean addTo(String player_name, Integer amount) {
+    public Boolean addTo(String player_name, Double amount) {
             try {
                 assert amount >= 0;
             } catch (AssertionError e) {
@@ -110,7 +108,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean addToBank(String player_name, Integer amount) {
+    public Boolean addToBank(String player_name, Double amount) {
         try {
             assert amount >= 0;
         } catch (AssertionError e) {
@@ -137,7 +135,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean takeFrom(String player_name, Integer amount) {
+    public Boolean takeFrom(String player_name, Double amount) {
         try {
             assert amount >= 0;
         } catch (AssertionError e) {
@@ -165,7 +163,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean takeFromBank(String player_name, Integer amount) {
+    public Boolean takeFromBank(String player_name, Double amount) {
         try {
             assert amount >= 0;
         } catch (AssertionError e) {
@@ -195,7 +193,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean transferMoney(String payer, String payee, Integer amount) {
+    public Boolean transferMoney(String payer, String payee, Double amount) {
         try {
             assert amount >= 0;
         } catch (AssertionError e) {
@@ -216,7 +214,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean transferMoneyToBank(String player_name, Integer amount) {
+    public Boolean transferMoneyToBank(String player_name, Double amount) {
         try {
             assert amount >= 0;
         } catch (AssertionError e) {
@@ -234,7 +232,7 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean transferBankToMoney(String player_name, Integer amount) {
+    public Boolean transferBankToMoney(String player_name, Double amount) {
         try {
             assert amount >= 0;
         } catch (AssertionError e) {

@@ -148,7 +148,7 @@ public class EconomyImplementer implements Economy {
                 return new EconomyResponse(amount, getBalance(playerName), EconomyResponse.ResponseType.FAILURE, "保存数据异常！");
             }
         }
-        if (DatabasePlayerTools.decreasePlayerData("Money", playerName, (int) amount)){
+        if (DatabasePlayerTools.decreasePlayerData("Money", playerName, amount)){
             return new EconomyResponse(amount, getBalance(playerName), EconomyResponse.ResponseType.SUCCESS, null);
         }
         return new EconomyResponse(amount, getBalance(playerName), EconomyResponse.ResponseType.FAILURE, null);
@@ -189,7 +189,7 @@ public class EconomyImplementer implements Economy {
                 return new EconomyResponse(amount, getBalance(playerName), EconomyResponse.ResponseType.FAILURE, "保存数据异常！");
             }
         } else {
-            if (DatabasePlayerTools.increasePlayerData("Money", playerName, (int) amount)){
+            if (DatabasePlayerTools.increasePlayerData("Money", playerName, amount)){
                 return new EconomyResponse(amount, getBalance(playerName), EconomyResponse.ResponseType.SUCCESS, null);
             }
             return new EconomyResponse(amount, getBalance(playerName), EconomyResponse.ResponseType.FAILURE, null);
@@ -213,7 +213,7 @@ public class EconomyImplementer implements Economy {
 
     @Override
     public EconomyResponse createBank(String name, String player) {
-        int money = UltiEconomyMain.getInstance().getConfig().getInt("initial_money");
+        double money = UltiEconomyMain.getInstance().getConfig().getDouble("initial_money");
         if (!UltiEconomyMain.isDatabaseEnabled) {
             File file = getPlayerFile(player);
             if (!file.exists()) {
@@ -298,7 +298,7 @@ public class EconomyImplementer implements Economy {
                 return new EconomyResponse(0, 0, EconomyResponse.ResponseType.FAILURE, null);
             }
         }
-        if (DatabasePlayerTools.increasePlayerData("Bank", name, (int) amount)){
+        if (DatabasePlayerTools.increasePlayerData("Bank", name, amount)){
             return new EconomyResponse(amount, bankBalance(name).balance, EconomyResponse.ResponseType.SUCCESS, null);
         }
         return new EconomyResponse(0, 0, EconomyResponse.ResponseType.FAILURE, null);
@@ -331,7 +331,7 @@ public class EconomyImplementer implements Economy {
 
     @Override
     public boolean createPlayerAccount(String playerName) {
-        int money = UltiEconomyMain.getInstance().getConfig().getInt("initial_money");
+        double money = UltiEconomyMain.getInstance().getConfig().getDouble("initial_money");
         if (!UltiEconomyMain.isDatabaseEnabled) {
             File file = getPlayerFile(playerName);
             if (!file.exists()) {

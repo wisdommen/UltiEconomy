@@ -2,14 +2,11 @@ package com.minecraft.economy.beans;
 
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.utils.DatabasePlayerTools;
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-
-import static com.minecraft.economy.apis.UltiEconomy.getNumber;
 
 public class PlayerEcoData {
 

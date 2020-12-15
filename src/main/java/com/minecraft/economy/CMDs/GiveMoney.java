@@ -21,9 +21,9 @@ public class GiveMoney extends AbstractConsoleCommandExecutor {
             return false;
         }
 
-        int amount;
+        double amount;
         try {
-            amount = Integer.parseInt(strings[1]);
+            amount = Double.parseDouble(strings[1]);
         } catch (NumberFormatException e) {
             commandSender.sendMessage(ChatColor.RED + "格式错误");
             return false;
@@ -33,10 +33,10 @@ public class GiveMoney extends AbstractConsoleCommandExecutor {
             commandSender.sendMessage(ChatColor.RED + "转账失败！");
             return false;
         }
-        commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%d枚金币给%s！", amount, strings[0]));
+        commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%.2f枚金币给%s！", amount, strings[0]));
         for (Player players : Bukkit.getOnlinePlayers()) {
             if (strings[0].equals(players.getName())) {
-                players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔腐竹转给你的%d枚金币！", amount));
+                players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔腐竹转给你的%.2f枚金币！", amount));
             }
         }
         return true;

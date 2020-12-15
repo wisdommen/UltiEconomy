@@ -18,14 +18,14 @@ public class Deposit extends AbstractPlayerCommandExecutor {
             player.sendMessage(ChatColor.RED + "格式错误！");
             return false;
         }
-        int deposit;
+        double deposit;
         try {
-            deposit = Integer.parseInt(strings[0]);
+            deposit = Double.parseDouble(strings[0]);
         } catch (NumberFormatException e) {
             player.sendMessage(ChatColor.RED + "格式错误！");
             return false;
         }
-        int currentMoney = economy.checkMoney(player.getName());
+        Double currentMoney = economy.checkMoney(player.getName());
 
         if (deposit < 1000) {
             player.sendMessage(ChatColor.GOLD + "无法存入小于1000的数额！");
@@ -35,26 +35,26 @@ public class Deposit extends AbstractPlayerCommandExecutor {
             return true;
         }
         if (!processDeposit(economy, player, deposit)) return true;
-        player.sendMessage(String.format(ChatColor.BLUE + "你已存入%d枚金币！\n" +
-                ChatColor.GREEN + "存款余额：%d\n" +
-                ChatColor.GREEN + "现金余额：%d",
+        player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f枚金币！\n" +
+                ChatColor.GREEN + "存款余额：%.2f\n" +
+                ChatColor.GREEN + "现金余额：%.2f",
                 deposit, economy.checkBank(player.getName()), economy.checkMoney(player.getName())));
         return true;
     }
 
-    private boolean processDeposit(UltiEconomy economy, Player player, int deposit){
-        int money_before = economy.checkMoney(player.getName());
-        int bank_before = economy.checkBank(player.getName());
+    private boolean processDeposit(UltiEconomy economy, Player player, double deposit){
+        double money_before = economy.checkMoney(player.getName());
+        double bank_before = economy.checkBank(player.getName());
         if (!economy.transferMoneyToBank(player.getName(), deposit)) {
             player.sendMessage(ChatColor.RED + "存款出现错误！");
             return false;
         }
-        int money_after = economy.checkMoney(player.getName());
-        int bank_after = economy.checkBank(player.getName());
+        double money_after = economy.checkMoney(player.getName());
+        double bank_after = economy.checkBank(player.getName());
         return checkDepositResult(economy, player, money_before, money_after, bank_after, bank_before);
     }
 
-    private boolean checkDepositResult(UltiEconomy economy, Player player, int moneyBefore, int moneyAfter, int bankAfter, int bankBefore) {
+    private boolean checkDepositResult(UltiEconomy economy, Player player, double moneyBefore, double moneyAfter, double bankAfter, double bankBefore) {
         if ((moneyBefore == moneyAfter && bankAfter > bankBefore) || (moneyBefore > moneyAfter && bankAfter == bankBefore)) {
             if (bankAfter > bankBefore) {
                 economy.takeFromBank(player.getName(), bankAfter - bankBefore);

@@ -76,7 +76,7 @@ public class DatabasePlayerTools {
      * @param amount     the amount
      * @return the prepared statement
      */
-    public static UUID increasePlayerDataStandby(String field, String playerName, int amount){
+    public static UUID increasePlayerDataStandby(String field, String playerName, double amount){
         return DatabaseUtils.increaseDataStandby(table, field, primaryID, playerName, String.valueOf(amount));
     }
 
@@ -89,7 +89,7 @@ public class DatabasePlayerTools {
      * @param statementList the statement list
      * @return the boolean
      */
-    public static boolean increasePlayerData(String field, String playerName, int amount, List<UUID> statementList){
+    public static boolean increasePlayerData(String field, String playerName, double amount, List<UUID> statementList){
         return DatabaseUtils.increaseData(table, field, primaryID, playerName, String.valueOf(amount), false, statementList);
     }
 
@@ -101,7 +101,7 @@ public class DatabasePlayerTools {
      * @param amount     the amount
      * @return the boolean
      */
-    public static boolean increasePlayerData(String field, String playerName, int amount){
+    public static boolean increasePlayerData(String field, String playerName, double amount){
         return DatabaseUtils.increaseData(table, field, primaryID, playerName, String.valueOf(amount));
     }
 
@@ -113,7 +113,7 @@ public class DatabasePlayerTools {
      * @param amount     the amount
      * @return the prepared statement
      */
-    public static UUID decreasePlayerDataStandby(String field, String playerName, int amount){
+    public static UUID decreasePlayerDataStandby(String field, String playerName, double amount){
         return DatabaseUtils.decreaseDataStandby(table, field, primaryID, playerName, String.valueOf(amount));
     }
 
@@ -126,7 +126,7 @@ public class DatabasePlayerTools {
      * @param statementList the statement list
      * @return the boolean
      */
-    public static boolean decreasePlayerData(String field, String playerName, int amount, List<UUID> statementList){
+    public static boolean decreasePlayerData(String field, String playerName, double amount, List<UUID> statementList){
         return DatabaseUtils.decreaseData(table, field, primaryID, playerName, String.valueOf(amount), false, statementList);
     }
 
@@ -138,7 +138,7 @@ public class DatabasePlayerTools {
      * @param amount     the amount
      * @return the boolean
      */
-    public static boolean decreasePlayerData(String field, String playerName, int amount){
+    public static boolean decreasePlayerData(String field, String playerName, double amount){
         return DatabaseUtils.decreaseData(table, field, primaryID, playerName, String.valueOf(amount));
     }
 }

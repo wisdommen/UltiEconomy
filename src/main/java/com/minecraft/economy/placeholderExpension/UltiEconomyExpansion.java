@@ -42,9 +42,9 @@ public class UltiEconomyExpansion extends PlaceholderExpansion {
         }
         switch (params){
             case "money":
-                return String.valueOf(economy.checkMoney(player.getName()));
+                return String.format("%.2f", economy.checkMoney(player.getName()));
             case "bank":
-                return String.valueOf(economy.checkBank(player.getName()));
+                return String.format("%.2f", economy.checkBank(player.getName()));
             default:
                 return null;
         }

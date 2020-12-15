@@ -29,16 +29,13 @@ public class Interest extends BukkitRunnable {
                 return;
             }
             String playerName = value.getName().replace(".yml", "");
-            int savings = economy.checkBank(playerName);
-            if (savings < 10000) {
-                return;
-            }
+            double savings = economy.checkBank(playerName);
             double interests = savings * (interestRate / 10000);
-            economy.addToBank(playerName, (int) interests);
+            economy.addToBank(playerName, interests);
             Player player = Bukkit.getPlayerExact(playerName);
             if (player != null && player.isOnline() && interests > 0) {
                 player.sendMessage(ChatColor.GOLD + "你已收到来自银行的利息！");
-                player.sendMessage(ChatColor.GOLD + "利息金额：" + ((int) interests));
+                player.sendMessage(ChatColor.GOLD + "利息金额：" + interests);
             }
         }
     }

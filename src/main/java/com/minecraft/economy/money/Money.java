@@ -19,7 +19,7 @@ public class Money extends AbstractPlayerCommandExecutor {
         if (!("money".equalsIgnoreCase(command.getName()) && strings.length == 0)) {
             return false;
         }
-        player.sendMessage(String.format(ChatColor.GOLD + "你有%d枚金币！", economy.checkMoney(player.getName())));
+        player.sendMessage(String.format(ChatColor.GOLD + "你有%.2f枚金币！", economy.checkMoney(player.getName())));
         return true;
     }
 }

@@ -44,10 +44,10 @@ public class MoveData {
             YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
             String player_name = file.getName().replace(".yml", "");
             System.out.println(String.format("传输%s的数据中...", player_name));
-            int money, bank;
+            double money, bank;
             if (file.length() != 0) {
-                money = config.getInt("money");
-                bank = config.getInt("bank");
+                money = config.getDouble("money");
+                bank = config.getDouble("bank");
             } else {
                 money = 0;
                 bank = 0;
@@ -84,8 +84,8 @@ public class MoveData {
             File file = new File(path, player_name + ".yml");
             YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
-            int money = economy.checkMoney(player_name);
-            int bank = economy.checkBank(player_name);
+            double money = economy.checkMoney(player_name);
+            double bank = economy.checkBank(player_name);
 
             config.set("money", money);
             config.set("bank", bank);

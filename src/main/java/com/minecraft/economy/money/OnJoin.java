@@ -26,7 +26,7 @@ public class OnJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException {
         Player player = event.getPlayer();
         UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
-        int money = UltiEconomyMain.getInstance().getConfig().getInt("initial_money");
+        double money = UltiEconomyMain.getInstance().getConfig().getDouble("initial_money");
         if (!UltiEconomyMain.isDatabaseEnabled) {
 
             File file = economy.getPlayerFile(player.getName());
