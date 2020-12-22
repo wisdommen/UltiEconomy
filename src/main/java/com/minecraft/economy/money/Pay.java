@@ -34,7 +34,10 @@ public class Pay extends AbstractTabExecutor {
             player.sendMessage(ChatColor.RED + "用法：/ultipay 玩家名 数字");
             return true;
         }
-
+        if (amount < 0){
+            player.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
+            return true;
+        }
         if (!economy.transferMoney(player.getName(), strings[0], amount)) {
             player.sendMessage(ChatColor.RED+"转账失败！");
             return true;

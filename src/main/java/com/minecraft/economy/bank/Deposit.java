@@ -25,6 +25,10 @@ public class Deposit extends AbstractPlayerCommandExecutor {
             player.sendMessage(ChatColor.RED + "格式错误！");
             return false;
         }
+        if (deposit < 0){
+            player.sendMessage(ChatColor.RED + "[警告]存款数额必须大于0！");
+            return true;
+        }
         Double currentMoney = economy.checkMoney(player.getName());
 
         if (deposit < 1000) {

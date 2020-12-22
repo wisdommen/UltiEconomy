@@ -28,7 +28,10 @@ public class GiveMoney extends AbstractConsoleCommandExecutor {
             commandSender.sendMessage(ChatColor.RED + "格式错误");
             return false;
         }
-
+        if (amount < 0){
+            commandSender.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
+            return true;
+        }
         if (!economy.addTo(strings[0], amount)) {
             commandSender.sendMessage(ChatColor.RED + "转账失败！");
             return false;

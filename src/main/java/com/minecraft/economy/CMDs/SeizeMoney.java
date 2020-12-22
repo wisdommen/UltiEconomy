@@ -29,7 +29,10 @@ public class SeizeMoney extends AbstractConsoleCommandExecutor {
             commandSender.sendMessage(ChatColor.RED + "格式错误");
             return false;
         }
-
+        if (amount < 0){
+            commandSender.sendMessage(ChatColor.RED + "[警告]数额必须大于0！");
+            return true;
+        }
         if (economy.takeFrom(strings[0], amount)) {
             commandSender.sendMessage(String.format(ChatColor.GOLD + "你已从%s夺取%.2f枚金币！", strings[0], amount));
             for (Player players : Bukkit.getOnlinePlayers()) {
