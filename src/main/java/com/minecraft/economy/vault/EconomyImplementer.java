@@ -16,8 +16,6 @@ import java.util.Map;
 
 public class EconomyImplementer implements Economy {
 
-    private static final UltiEconomyMain plugin = UltiEconomyMain.getInstance();
-
     @Override
     public boolean isEnabled() {
         return true;

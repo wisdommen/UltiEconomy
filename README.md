@@ -43,7 +43,7 @@ if (!setupEconomy()){
 OK，一切初始化设置完成，接下来你只要在你的其他类里调用:    getEconomy() 即可获取到economy对象。
 例如：
 ```java
-UltiEconomyAPI economy = UltiTools.getEconomy();
+UltiEconomyAPI economy = ExamplePlugin.getEconomy();
 ```
 更多的方法调用请看doc文件夹下的Javadoc。
 这里举几个常用的：
@@ -53,13 +53,13 @@ economy.checkMoney(Player.getName())
 // 查看玩家银行存款
 economy.checkBank(Player.getName())
 // 减少玩家现金
-economy.takeFrom(Player.getName())
+economy.takeFrom(Player.getName(), 10.00)
 // 减少玩家存款
-economy.takeFromBank(Player.getName())
+economy.takeFromBank(Player.getName(), 10.00)
 // 添加玩家现金
-economy.addTo(Player.getName())
+economy.addTo(Player.getName(), 11.11)
 // 添加玩家存款
-economy.addToBank(Player.getName())
+economy.addToBank(Player.getName(), 22.3344)
 ```
 ## 完整代码实例：
 
@@ -119,3 +119,9 @@ public class subClass implements CommandExecutor {
 }
 ```
 你可以在我的源码中看到更多的例子，这里就不一一列举了。感谢使用！
+
+当然也有另一个调用方法，直接使用UltiCoreAPI调用经济系统，UltiCoreAPI已经实现了Vault的封装，在找不到UltiEconomy的情况下会自动调用Vault。
+
+详细可以见：https://app.gitbook.com/@wisdomme/s/ulticoreapi/
+
+源码：https://github.com/wisdommen/UltiCore-Core
