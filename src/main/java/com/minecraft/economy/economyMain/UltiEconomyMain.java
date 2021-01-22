@@ -117,7 +117,7 @@ public class UltiEconomyMain extends JavaPlugin {
         }
         //利息任务
         if (getConfig().getBoolean("enableInterest")) {
-            BukkitTask t1 = new Interest().runTaskTimer(this, 0, time * 20L);
+            BukkitTask t1 = new Interest().runTaskTimerAsynchronously(this, 0, time * 20L);
             getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "已开启利息！");
         }
         //新玩家入服检测
