@@ -1,5 +1,6 @@
 package com.minecraft.economy.economyMain;
 
+import com.minecraft.economy.CMDs.SeizeMoney;
 import com.minecraft.economy.CMDs.TransferData;
 import com.minecraft.economy.vault.EconomyImplementer;
 import com.minecraft.economy.apis.UltiEconomy;
@@ -126,6 +127,7 @@ public class UltiEconomyMain extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("qk")).setExecutor(new Withdraw());
         Objects.requireNonNull(this.getCommand("ck")).setExecutor(new Deposit());
         Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new GiveMoney());
+        Objects.requireNonNull(this.getCommand("takemoney")).setExecutor(new SeizeMoney());
         Objects.requireNonNull(this.getCommand("bank")).setExecutor(new Bank());
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
         Objects.requireNonNull(this.getCommand("ultipay")).setExecutor(new Pay());

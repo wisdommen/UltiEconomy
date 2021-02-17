@@ -19,7 +19,7 @@ public class SeizeMoney extends AbstractConsoleCommandExecutor {
     @Override
     public boolean onConsoleCommand(@NotNull CommandSender commandSender, @NotNull Command command, String[] strings) {
         UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
-        if (!(command.getName().equalsIgnoreCase("takemoney") && strings.length == 2)) {
+        if (strings.length != 2) {
             return false;
         }
         double amount;
@@ -50,7 +50,7 @@ public class SeizeMoney extends AbstractConsoleCommandExecutor {
             }
             return true;
         } else {
-            commandSender.sendMessage(ChatColor.GOLD + "没收失败！");
+            commandSender.sendMessage(ChatColor.GOLD + "没收失败！可能是对方金币数量不足。");
             return false;
         }
     }
