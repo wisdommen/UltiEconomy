@@ -9,12 +9,6 @@ commands:
   money:
     description: 金币余额
     usage: /money
-  ultipay:
-    description: 给其他玩家转账
-    usage: /ultipay [玩家] [数字]
-    permissions:
-      ultipay.use:
-        defailt: [false]
   givemoney:
     description: 给玩家钱
     usage: /givemoney [玩家] [数字]

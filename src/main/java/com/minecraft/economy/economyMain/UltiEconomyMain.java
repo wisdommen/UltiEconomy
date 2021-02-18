@@ -2,6 +2,7 @@ package com.minecraft.economy.economyMain;
 
 import com.minecraft.economy.CMDs.SeizeMoney;
 import com.minecraft.economy.CMDs.TransferData;
+import com.minecraft.economy.register.CommandRegister;
 import com.minecraft.economy.vault.EconomyImplementer;
 import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.bank.Bank;
@@ -24,6 +25,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -130,7 +132,7 @@ public class UltiEconomyMain extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("takemoney")).setExecutor(new SeizeMoney());
         Objects.requireNonNull(this.getCommand("bank")).setExecutor(new Bank());
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
-        Objects.requireNonNull(this.getCommand("ultipay")).setExecutor(new Pay());
+        CommandRegister.registerCommand(this, new Pay(), "", "付款指令", "ultipay", "upay");
         Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());
 
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
