@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -34,19 +35,24 @@ public class Pay extends AbstractTabExecutor {
             player.sendMessage(ChatColor.RED + "用法：/ultipay 玩家名 数字");
             return true;
         }
-        if (amount < 0){
-            player.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
-            return true;
-        }
-        if (!economy.transferMoney(player.getName(), strings[0], amount)) {
-            player.sendMessage(ChatColor.RED+"转账失败！");
-            return true;
-        }
-        player.sendMessage(String.format(ChatColor.GOLD + "你已转账%s枚金币给%s！", strings[1], strings[0]));
-        Player receiver = Bukkit.getPlayerExact(strings[0]);
-        if (receiver != null && receiver.isOnline()) {
-            receiver.sendMessage(String.format(ChatColor.GOLD + "你收到一笔来自%s的%s枚金币！", player.getName(), strings[1]));
-        }
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (amount < 0){
+                    player.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
+                    return;
+                }
+                if (!economy.transferMoney(player.getName(), strings[0], amount)) {
+                    player.sendMessage(ChatColor.RED+"转账失败！");
+                    return;
+                }
+                player.sendMessage(String.format(ChatColor.GOLD + "你已转账%s枚金币给%s！", strings[1], strings[0]));
+                Player receiver = Bukkit.getPlayerExact(strings[0]);
+                if (receiver != null && receiver.isOnline()) {
+                    receiver.sendMessage(String.format(ChatColor.GOLD + "你收到一笔来自%s的%s枚金币！", player.getName(), strings[1]));
+                }
+            }
+        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         return true;
     }
 

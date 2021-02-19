@@ -2,9 +2,11 @@ package com.minecraft.economy.bank;
 
 import com.minecraft.economy.AbstractClasses.AbstractPlayerCommandExecutor;
 import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -25,20 +27,25 @@ public class Withdraw  extends AbstractPlayerCommandExecutor {
             player.sendMessage(ChatColor.RED + "格式错误！");
             return false;
         }
-        if (withdraw < 0) {
-            player.sendMessage(ChatColor.RED + "取款金额不可以是负数！");
-            return true;
-        }
-        double currentSavings = economy.checkBank(player.getName());
-        if (withdraw > currentSavings) {
-            player.sendMessage(ChatColor.RED + "你没有这么多钱！");
-            return true;
-        }
-        if (!processWithdraw(economy, player, withdraw)) return true;
-        player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f枚金币！\n" +
-                        ChatColor.GREEN + "存款余额：%.2f\n" +
-                        ChatColor.GREEN + "现金余额：%.2f",
-                withdraw, economy.checkBank(player.getName()), economy.checkMoney(player.getName())));
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (withdraw < 0) {
+                    player.sendMessage(ChatColor.RED + "取款金额不可以是负数！");
+                    return;
+                }
+                double currentSavings = economy.checkBank(player.getName());
+                if (withdraw > currentSavings) {
+                    player.sendMessage(ChatColor.RED + "你没有这么多钱！");
+                    return;
+                }
+                if (!processWithdraw(economy, player, withdraw)) return;
+                player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f枚金币！\n" +
+                                ChatColor.GREEN + "存款余额：%.2f\n" +
+                                ChatColor.GREEN + "现金余额：%.2f",
+                        withdraw, economy.checkBank(player.getName()), economy.checkMoney(player.getName())));
+            }
+        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         return true;
     }
 

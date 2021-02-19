@@ -2,9 +2,11 @@ package com.minecraft.economy.bank;
 
 import com.minecraft.economy.AbstractClasses.AbstractPlayerCommandExecutor;
 import com.minecraft.economy.apis.UltiEconomy;
+import com.minecraft.economy.economyMain.UltiEconomyMain;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -25,24 +27,29 @@ public class Deposit extends AbstractPlayerCommandExecutor {
             player.sendMessage(ChatColor.RED + "格式错误！");
             return false;
         }
-        if (deposit < 0){
-            player.sendMessage(ChatColor.RED + "[警告]存款数额必须大于0！");
-            return true;
-        }
-        Double currentMoney = economy.checkMoney(player.getName());
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (deposit < 0){
+                    player.sendMessage(ChatColor.RED + "[警告]存款数额必须大于0！");
+                    return;
+                }
+                Double currentMoney = economy.checkMoney(player.getName());
 
-        if (deposit < 1000) {
-            player.sendMessage(ChatColor.GOLD + "无法存入小于1000的数额！");
-            return true;
-        } else if (currentMoney < deposit) {
-            player.sendMessage(ChatColor.RED + "你没有这么多钱！");
-            return true;
-        }
-        if (!processDeposit(economy, player, deposit)) return true;
-        player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f枚金币！\n" +
-                ChatColor.GREEN + "存款余额：%.2f\n" +
-                ChatColor.GREEN + "现金余额：%.2f",
-                deposit, economy.checkBank(player.getName()), economy.checkMoney(player.getName())));
+                if (deposit < 1000) {
+                    player.sendMessage(ChatColor.GOLD + "无法存入小于1000的数额！");
+                    return;
+                } else if (currentMoney < deposit) {
+                    player.sendMessage(ChatColor.RED + "你没有这么多钱！");
+                    return;
+                }
+                if (!processDeposit(economy, player, deposit)) return;
+                player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f枚金币！\n" +
+                                ChatColor.GREEN + "存款余额：%.2f\n" +
+                                ChatColor.GREEN + "现金余额：%.2f",
+                        deposit, economy.checkBank(player.getName()), economy.checkMoney(player.getName())));
+            }
+        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         return true;
     }
 

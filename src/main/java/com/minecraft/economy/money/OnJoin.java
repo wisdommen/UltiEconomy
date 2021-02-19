@@ -28,7 +28,6 @@ public class OnJoin implements Listener {
         UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
         double money = UltiEconomyMain.getInstance().getConfig().getDouble("initial_money");
         if (!UltiEconomyMain.isDatabaseEnabled) {
-
             File file = economy.getPlayerFile(player.getName());
             if (!file.exists()) {
                 YamlConfiguration config = YamlConfiguration.loadConfiguration(file);

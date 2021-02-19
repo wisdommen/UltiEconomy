@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -28,20 +29,25 @@ public class GiveMoney extends AbstractConsoleCommandExecutor {
             commandSender.sendMessage(ChatColor.RED + "格式错误");
             return false;
         }
-        if (amount < 0){
-            commandSender.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
-            return true;
-        }
-        if (!economy.addTo(strings[0], amount)) {
-            commandSender.sendMessage(ChatColor.RED + "转账失败！");
-            return false;
-        }
-        commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%.2f枚金币给%s！", amount, strings[0]));
-        for (Player players : Bukkit.getOnlinePlayers()) {
-            if (strings[0].equals(players.getName())) {
-                players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔腐竹转给你的%.2f枚金币！", amount));
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (amount < 0){
+                    commandSender.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
+                    return;
+                }
+                if (!economy.addTo(strings[0], amount)) {
+                    commandSender.sendMessage(ChatColor.RED + "转账失败！");
+                    return;
+                }
+                commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%.2f枚金币给%s！", amount, strings[0]));
+                for (Player players : Bukkit.getOnlinePlayers()) {
+                    if (strings[0].equals(players.getName())) {
+                        players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔腐竹转给你的%.2f枚金币！", amount));
+                    }
+                }
             }
-        }
+        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         return true;
     }
 }
