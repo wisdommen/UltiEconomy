@@ -2,7 +2,7 @@ package com.minecraft.economy.vault;
 
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.utils.DatabasePlayerTools;
-import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.economy.AbstractEconomy;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EconomyImplementer implements Economy {
+public class EconomyImplementer extends AbstractEconomy {
 
     @Override
     public boolean isEnabled() {
@@ -33,22 +33,22 @@ public class EconomyImplementer implements Economy {
 
     @Override
     public int fractionalDigits() {
-        return 0;
+        return 2;
     }
 
     @Override
     public String format(double amount) {
-        return null;
+        return String.format("%.2f", amount); // dj_segfault
     }
 
     @Override
     public String currencyNamePlural() {
-        return null;
+        return "金币";
     }
 
     @Override
     public String currencyNameSingular() {
-        return null;
+        return "金币";
     }
 
     @Override
