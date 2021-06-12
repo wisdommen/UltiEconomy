@@ -79,31 +79,89 @@ public class UltiEconomy implements UltiEconomyAPI {
     }
 
     @Override
-    public Boolean addTo(String player_name, Double amount) {
-            try {
-                assert amount >= 0;
-            } catch (AssertionError e) {
-                System.out.println("数额异常:" + e);
+    public Boolean setMoney(String player_name, Double amount) {
+        try {
+            assert amount >= 0;
+        } catch (AssertionError e) {
+            System.out.println("数额异常:" + e);
+            return false;
+        }
+        if (!UltiEconomyMain.isDatabaseEnabled) {
+            if (!playerFileExists(player_name)) {
                 return false;
             }
-            if (!UltiEconomyMain.isDatabaseEnabled) {
-                if (!playerFileExists(player_name)) {
-                    return false;
-                }
-                YamlConfiguration config = loadConfig(getPlayerFile(player_name));
-                config.set("money", checkMoney(player_name) + amount);
-                try {
-                    config.save(getPlayerFile(player_name));
-                    return true;
-                } catch (IOException e) {
-                    System.out.println(ChatColor.RED+"[WARNING]保存数据异常：" +ChatColor.WHITE+ e);
-                    return false;
-                }
-            } else {
-                if (DatabasePlayerTools.isPlayerExist(player_name)) {
-                    return DatabasePlayerTools.increasePlayerData("Money", player_name, amount);
-                }
+            YamlConfiguration config = loadConfig(getPlayerFile(player_name));
+            config.set("money", amount);
+            try {
+                config.save(getPlayerFile(player_name));
+                return true;
+            } catch (IOException e) {
+                System.out.println(ChatColor.RED+"[WARNING]保存数据异常：" +ChatColor.WHITE+ e);
+                return false;
             }
+        } else {
+            if (DatabasePlayerTools.isPlayerExist(player_name)) {
+                return DatabasePlayerTools.updatePlayerData(player_name, "Money", String.valueOf(amount));
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean setBank(String player_name, Double amount) {
+        try {
+            assert amount >= 0;
+        } catch (AssertionError e) {
+            System.out.println("数额异常:" + e);
+            return false;
+        }
+        if (!UltiEconomyMain.isDatabaseEnabled) {
+            if (!playerFileExists(player_name)) {
+                return false;
+            }
+            YamlConfiguration config = loadConfig(getPlayerFile(player_name));
+            config.set("bank", amount);
+            try {
+                config.save(getPlayerFile(player_name));
+                return true;
+            } catch (IOException e) {
+                System.out.println(ChatColor.RED+"[WARNING]保存数据异常：" +ChatColor.WHITE+ e);
+                return false;
+            }
+        } else {
+            if (DatabasePlayerTools.isPlayerExist(player_name)) {
+                return DatabasePlayerTools.updatePlayerData(player_name, "Bank", String.valueOf(amount));
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean addTo(String player_name, Double amount) {
+        try {
+            assert amount >= 0;
+        } catch (AssertionError e) {
+            System.out.println("数额异常:" + e);
+            return false;
+        }
+        if (!UltiEconomyMain.isDatabaseEnabled) {
+            if (!playerFileExists(player_name)) {
+                return false;
+            }
+            YamlConfiguration config = loadConfig(getPlayerFile(player_name));
+            config.set("money", checkMoney(player_name) + amount);
+            try {
+                config.save(getPlayerFile(player_name));
+                return true;
+            } catch (IOException e) {
+                System.out.println(ChatColor.RED+"[WARNING]保存数据异常：" +ChatColor.WHITE+ e);
+                return false;
+            }
+        } else {
+            if (DatabasePlayerTools.isPlayerExist(player_name)) {
+                return DatabasePlayerTools.increasePlayerData("Money", player_name, amount);
+            }
+        }
         return false;
     }
 

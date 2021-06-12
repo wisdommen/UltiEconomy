@@ -18,6 +18,9 @@ commands:
   takemoney:
     description: 拿走玩家的钱
     usage: /takemoney [玩家] [数字]
+  setmoney:
+    description: 设置玩家的钱
+    usage: /setmoney [玩家] [数字]
   bank:
     description: 显示银行存款
     usage: /bank

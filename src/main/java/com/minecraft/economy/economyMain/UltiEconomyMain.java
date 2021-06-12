@@ -1,6 +1,6 @@
 package com.minecraft.economy.economyMain;
 
-import com.minecraft.economy.CMDs.SeizeMoney;
+import com.minecraft.economy.CMDs.MoneyOperateCommands;
 import com.minecraft.economy.CMDs.TransferData;
 import com.minecraft.economy.register.CommandRegister;
 import com.minecraft.economy.vault.EconomyImplementer;
@@ -8,7 +8,6 @@ import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.bank.Bank;
 import com.minecraft.economy.bank.Deposit;
 import com.minecraft.economy.bank.Withdraw;
-import com.minecraft.economy.CMDs.GiveMoney;
 import com.minecraft.economy.money.Pay;
 import com.minecraft.economy.interest.Interest;
 import com.minecraft.economy.money.Money;
@@ -25,7 +24,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -128,11 +126,12 @@ public class UltiEconomyMain extends JavaPlugin {
         //注册命令
         Objects.requireNonNull(this.getCommand("qk")).setExecutor(new Withdraw());
         Objects.requireNonNull(this.getCommand("ck")).setExecutor(new Deposit());
-        Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new GiveMoney());
-        Objects.requireNonNull(this.getCommand("takemoney")).setExecutor(new SeizeMoney());
+        Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new MoneyOperateCommands());
+        Objects.requireNonNull(this.getCommand("takemoney")).setExecutor(new MoneyOperateCommands());
+        Objects.requireNonNull(this.getCommand("setmoney")).setExecutor(new MoneyOperateCommands());
         Objects.requireNonNull(this.getCommand("bank")).setExecutor(new Bank());
         Objects.requireNonNull(this.getCommand("money")).setExecutor(new Money());
-        CommandRegister.registerCommand(this, new Pay(), "", "付款指令", "ultipay", "upay");
+        CommandRegister.registerCommand(this, new Pay(), "", "付款指令", "ultipay", "upay", "pay");
         Objects.requireNonNull(this.getCommand("mvdb")).setExecutor(new TransferData());
 
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {

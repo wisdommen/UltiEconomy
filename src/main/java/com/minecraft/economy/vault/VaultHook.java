@@ -15,7 +15,7 @@ public class VaultHook {
     public void hook() {
         provider = plugin.economyImplementer;
         Bukkit.getServicesManager().register(Economy.class, this.provider, this.plugin, ServicePriority.Normal);
-        Bukkit.getConsoleSender().sendMessage(ChatColor.GOLD+"[UltiEconomy] 已连接 VaultAPI");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GOLD + "[UltiEconomy] 已连接 VaultAPI");
     }
 
     public void unhook() {

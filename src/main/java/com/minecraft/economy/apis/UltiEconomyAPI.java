@@ -49,6 +49,10 @@ public interface UltiEconomyAPI {
      */
     public Double checkBank(String player_name);
 
+    public Boolean setMoney(String player_name, Double amount);
+
+    public Boolean setBank(String player_name, Double amount);
+
     /**
      * 添加金额到玩家现金
      *

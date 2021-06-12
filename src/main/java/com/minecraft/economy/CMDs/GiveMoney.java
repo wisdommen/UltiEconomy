@@ -3,6 +3,7 @@ package com.minecraft.economy.CMDs;
 import com.minecraft.economy.AbstractClasses.AbstractConsoleCommandExecutor;
 import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.economyMain.UltiEconomyMain;
+import com.minecraft.economy.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -17,37 +18,6 @@ import org.jetbrains.annotations.NotNull;
 public class GiveMoney extends AbstractConsoleCommandExecutor {
     @Override
     public boolean onConsoleCommand(@NotNull CommandSender commandSender, @NotNull Command command, String[] strings) {
-        UltiEconomy economy = UltiEconomyMain.getUltiEconomy();
-        if (!("givemoney".equalsIgnoreCase(command.getName()) && strings.length == 2)) {
-            return false;
-        }
-
-        double amount;
-        try {
-            amount = Double.parseDouble(strings[1]);
-        } catch (NumberFormatException e) {
-            commandSender.sendMessage(ChatColor.RED + "格式错误");
-            return false;
-        }
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (amount < 0){
-                    commandSender.sendMessage(ChatColor.RED + "[警告]转账数额必须大于0！");
-                    return;
-                }
-                if (!economy.addTo(strings[0], amount)) {
-                    commandSender.sendMessage(ChatColor.RED + "转账失败！");
-                    return;
-                }
-                commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%.2f枚金币给%s！", amount, strings[0]));
-                for (Player players : Bukkit.getOnlinePlayers()) {
-                    if (strings[0].equals(players.getName())) {
-                        players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔腐竹转给你的%.2f枚金币！", amount));
-                    }
-                }
-            }
-        }.runTaskAsynchronously(UltiEconomyMain.getInstance());
-        return true;
+        return Utils.giveMoney(commandSender, strings);
     }
 }
