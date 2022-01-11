@@ -25,8 +25,11 @@ enable_version_check: true
 '注释10请勿修改': '是否开启自动版本升级(必须同时开启自动版本检查)'
 enable_auto_update: false
 
-'注释11请勿修改': '初始金币数量'
+'注释11请勿修改': '初始货币数量'
 initial_money: 1000
 
-'注释12请勿修改': 'OP是否可以增加/删除玩家的金币数量'
+'注释12请勿修改': 'OP是否可以增加/删除玩家的货币数量'
 op_operate_money: false
+
+'注释13请勿修改': '货币名称'
+currency_name: '金币'

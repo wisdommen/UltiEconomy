@@ -1,7 +1,9 @@
 package com.minecraft.economy.CMDs;
 
+import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.economyMain.UltiEconomyMain;
 import com.minecraft.economy.utils.Utils;
+import net.milkbowl.vault.chat.Chat;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,6 +19,24 @@ public class MoneyOperateCommands implements CommandExecutor {
             Player player = (Player) sender;
             if (player.isOp()) {
                 if (UltiEconomyMain.getInstance().getConfig().getBoolean("op_operate_money")) {
+                    UltiEconomy ultiEconomy = UltiEconomyMain.getUltiEconomy();
+                    if ("checkmoney".equalsIgnoreCase(command.getName())){
+                        Double money = ultiEconomy.checkMoney(strings[0]);
+                        if (money < 0){
+                            player.sendMessage(ChatColor.RED + "不存在此玩家！");
+                            return true;
+                        }
+                        player.sendMessage(ChatColor.GOLD + String.format("%s拥有%.2f%s", strings[0], money, UltiEconomyMain.getCurrencyName()));
+                        return true;
+                    }else if ("checkbank".equalsIgnoreCase(command.getName())){
+                        Double money = ultiEconomy.checkBank(strings[0]);
+                        if (money < 0){
+                            player.sendMessage(ChatColor.RED + "不存在此玩家！");
+                            return true;
+                        }
+                        player.sendMessage(ChatColor.GOLD + String.format("%s拥有%.2f存款", strings[0], money));
+                        return true;
+                    }
                     return execute(player, command, strings);
                 } else {
                     player.sendMessage(ChatColor.RED + "你不能在游戏内执行这个命令！");

@@ -40,7 +40,7 @@ public class Withdraw  extends AbstractPlayerCommandExecutor {
                     return;
                 }
                 if (!processWithdraw(economy, player, withdraw)) return;
-                player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f枚金币！\n" +
+                player.sendMessage(String.format(ChatColor.BLUE + "你已存入%.2f"+ UltiEconomyMain.getCurrencyName()+"！\n" +
                                 ChatColor.GREEN + "存款余额：%.2f\n" +
                                 ChatColor.GREEN + "现金余额：%.2f",
                         withdraw, economy.checkBank(player.getName()), economy.checkMoney(player.getName())));

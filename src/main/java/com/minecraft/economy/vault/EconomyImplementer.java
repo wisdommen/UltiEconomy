@@ -48,7 +48,7 @@ public class EconomyImplementer extends AbstractEconomy {
 
     @Override
     public String currencyNameSingular() {
-        return "金币";
+        return UltiEconomyMain.getCurrencyName();
     }
 
     @Override

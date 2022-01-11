@@ -110,7 +110,7 @@ public class subClass implements CommandExecutor {
             Player player = (Player) commandSender;
             UltiEconomyAPI economy = ExamplePlugin.getEconomy();
             if (command.getName().equalsIgnoreCase("money") && strings.length == 0) {
-                player.sendMessage("你有" + economy.checkMoney(player.getName()) + "枚金币！");
+                player.sendMessage("你有" + economy.checkMoney(player.getName()) + "枚货币！");
                 return true;
             }
         }

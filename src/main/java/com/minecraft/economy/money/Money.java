@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 /**
- * 查看金币
+ * 查看货币
  */
 public class Money extends AbstractPlayerCommandExecutor {
 
@@ -24,7 +24,7 @@ public class Money extends AbstractPlayerCommandExecutor {
         new BukkitRunnable() {
             @Override
             public void run() {
-                player.sendMessage(String.format(ChatColor.GOLD + "你有%.2f枚金币！", economy.checkMoney(player.getName())));
+                player.sendMessage(String.format(ChatColor.GOLD + "你有%.2f%s！", economy.checkMoney(player.getName()), UltiEconomyMain.getCurrencyName()));
             }
         }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         return true;

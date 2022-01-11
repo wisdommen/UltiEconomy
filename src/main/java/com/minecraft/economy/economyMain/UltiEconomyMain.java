@@ -3,6 +3,7 @@ package com.minecraft.economy.economyMain;
 import com.minecraft.economy.CMDs.MoneyOperateCommands;
 import com.minecraft.economy.CMDs.TransferData;
 import com.minecraft.economy.register.CommandRegister;
+import com.minecraft.economy.task.LeaderBoardTask;
 import com.minecraft.economy.vault.EconomyImplementer;
 import com.minecraft.economy.apis.UltiEconomy;
 import com.minecraft.economy.bank.Bank;
@@ -121,11 +122,14 @@ public class UltiEconomyMain extends JavaPlugin {
             BukkitTask t1 = new Interest().runTaskTimerAsynchronously(this, 0, time * 20L);
             getServer().getConsoleSender().sendMessage(ChatColor.GOLD + "已开启利息！");
         }
+        new LeaderBoardTask().runTaskTimerAsynchronously(this, 0, 200L);
         //新玩家入服检测
         getServer().getPluginManager().registerEvents(new OnJoin(), this);
         //注册命令
         Objects.requireNonNull(this.getCommand("qk")).setExecutor(new Withdraw());
         Objects.requireNonNull(this.getCommand("ck")).setExecutor(new Deposit());
+        Objects.requireNonNull(this.getCommand("checkmoney")).setExecutor(new MoneyOperateCommands());
+        Objects.requireNonNull(this.getCommand("checkbank")).setExecutor(new MoneyOperateCommands());
         Objects.requireNonNull(this.getCommand("givemoney")).setExecutor(new MoneyOperateCommands());
         Objects.requireNonNull(this.getCommand("takemoney")).setExecutor(new MoneyOperateCommands());
         Objects.requireNonNull(this.getCommand("setmoney")).setExecutor(new MoneyOperateCommands());
@@ -167,5 +171,9 @@ public class UltiEconomyMain extends JavaPlugin {
         // You can find the plugin ids of your plugins on the page https://bstats.org/what-is-my-plugin-id
         int pluginId = 8690; // <-- Replace with the id of your plugin!
         Metrics metrics = new Metrics(UltiEconomyMain.getInstance(), pluginId);
+    }
+
+    public static String getCurrencyName(){
+        return UltiEconomyMain.getInstance().getConfig().getString("currency_name");
     }
 }

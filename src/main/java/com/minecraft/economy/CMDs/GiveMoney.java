@@ -13,7 +13,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * 给玩家金币的指令
+ * 给玩家货币的指令
  */
 public class GiveMoney extends AbstractConsoleCommandExecutor {
     @Override

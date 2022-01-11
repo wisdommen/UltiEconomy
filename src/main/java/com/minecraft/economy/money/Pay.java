@@ -46,10 +46,10 @@ public class Pay extends AbstractTabExecutor {
                     player.sendMessage(ChatColor.RED+"转账失败！");
                     return;
                 }
-                player.sendMessage(String.format(ChatColor.GOLD + "你已转账%s枚金币给%s！", strings[1], strings[0]));
+                player.sendMessage(String.format(ChatColor.GOLD + "你已转账%s%s给%s！", strings[1], UltiEconomyMain.getCurrencyName(), strings[0]));
                 Player receiver = Bukkit.getPlayerExact(strings[0]);
                 if (receiver != null && receiver.isOnline()) {
-                    receiver.sendMessage(String.format(ChatColor.GOLD + "你收到一笔来自%s的%s枚金币！", player.getName(), strings[1]));
+                    receiver.sendMessage(String.format(ChatColor.GOLD + "你收到一笔来自%s的%s%s！", player.getName(), strings[1], UltiEconomyMain.getCurrencyName()));
                 }
             }
         }.runTaskAsynchronously(UltiEconomyMain.getInstance());

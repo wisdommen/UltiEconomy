@@ -123,7 +123,7 @@ public class Utils {
                     commandSender.sendMessage(ChatColor.RED + "操作失败！");
                     return;
                 }
-                commandSender.sendMessage(String.format(ChatColor.GOLD + "你已将%s的现金余额设置为%.2f枚金币！", strings[0], amount));
+                commandSender.sendMessage(String.format(ChatColor.GOLD + "你已将%s的现金余额设置为%.2f%s！", strings[0], amount, UltiEconomyMain.getCurrencyName()));
             }
         }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         return true;
@@ -149,10 +149,10 @@ public class Utils {
                     commandSender.sendMessage(ChatColor.RED + "转账失败！");
                     return;
                 }
-                commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%.2f枚金币给%s！", amount, strings[0]));
+                commandSender.sendMessage(String.format(ChatColor.GOLD + "你已转账%.2f%s给%s！", amount, UltiEconomyMain.getCurrencyName(), strings[0]));
                 for (Player players : Bukkit.getOnlinePlayers()) {
                     if (strings[0].equals(players.getName())) {
-                        players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔%s转给你的%.2f枚金币！", commandSender.getName(), amount));
+                        players.sendMessage(String.format(ChatColor.GOLD + "你收到一笔%s转给你的%.2f%s！", commandSender.getName(), amount, UltiEconomyMain.getCurrencyName()));
                     }
                 }
             }
@@ -177,21 +177,21 @@ public class Utils {
                     return;
                 }
                 if (economy.takeFrom(strings[0], amount)) {
-                    commandSender.sendMessage(String.format(ChatColor.GOLD + "你已从%s夺取%.2f枚金币！", strings[0], amount));
+                    commandSender.sendMessage(String.format(ChatColor.GOLD + "你已从%s夺取%.2f%s！", strings[0], amount, UltiEconomyMain.getCurrencyName()));
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         if (strings[0].equals(players.getName())) {
-                            players.sendMessage(String.format(ChatColor.GOLD + "你被没收了%.2f枚金币！", amount));
+                            players.sendMessage(String.format(ChatColor.GOLD + "你被没收了%.2f%s！", amount, UltiEconomyMain.getCurrencyName()));
                         }
                     }
                 } else if (economy.takeFromBank(strings[0], amount)) {
-                    commandSender.sendMessage(String.format(ChatColor.GOLD + "你已从%s的银行里夺取%.2f枚金币！", strings[0], amount));
+                    commandSender.sendMessage(String.format(ChatColor.GOLD + "你已从%s的银行里夺取%.2f%s！", strings[0], amount, UltiEconomyMain.getCurrencyName()));
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         if (strings[0].equals(players.getName())) {
-                            players.sendMessage(String.format(ChatColor.GOLD + "你的银行账户被没收了%.2f枚金币！", amount));
+                            players.sendMessage(String.format(ChatColor.GOLD + "你的银行账户被没收了%.2f%s！", amount, UltiEconomyMain.getCurrencyName()));
                         }
                     }
                 } else {
-                    commandSender.sendMessage(ChatColor.GOLD + "没收失败！可能是对方金币数量不足。");
+                    commandSender.sendMessage(ChatColor.GOLD + "没收失败！可能是对方货币数量不足。");
                 }
             }
         }.runTaskAsynchronously(UltiEconomyMain.getInstance());

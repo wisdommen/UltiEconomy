@@ -20,7 +20,7 @@ public class Bank extends AbstractPlayerCommandExecutor {
                 @Override
                 public void run() {
                     double money = economy.checkBank(player.getName());
-                    player.sendMessage(String.format((ChatColor.GOLD + "你的银行存款为%.2f枚金币！") , money));
+                    player.sendMessage(String.format((ChatColor.GOLD + "你的银行存款为%.2f%s！") , money, UltiEconomyMain.getCurrencyName()));
                 }
             }.runTaskAsynchronously(UltiEconomyMain.getInstance());
         }

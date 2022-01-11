@@ -8,8 +8,14 @@ load: STARTUP
 
 commands:
   money:
-    description: 金币余额
+    description: 货币余额
     usage: /money
+  checkmoney:
+    description: 检查玩家货币余额
+    usage: /checkmoney
+  checkbank:
+    description: 检查玩家存款余额
+    usage: /checkbank
   givemoney:
     description: 给玩家钱
     usage: /givemoney [玩家] [数字]
