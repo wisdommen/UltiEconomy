@@ -28,9 +28,9 @@ public class LeaderBoardTask extends BukkitRunnable {
     }
 
     public static Map.Entry<String, Double> getPlayer(int position){
-        if (position >= list.size()){
+        if (position > list.size() || position <= 0){
             return null;
         }
-        return list.get(position);
+        return list.get(list.size() - position);
     }
 }
